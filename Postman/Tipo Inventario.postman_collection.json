@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "e3a6ba95-c357-4ef7-a637-b9f64d4d83a5",
+		"name": "Tipo Inventario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24018026"
+	},
+	"item": [
+		{
+			"name": "Get Tipo Inventario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/tipoInventarioGet",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tipoInventarioGet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tipo Inventario ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/tipoInventarioGet/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tipoInventarioGet",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Tipo Inventario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombreTipo\": \"Pent-House\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tipoInventarioPost",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tipoInventarioPost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Tipo Inventario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreTipo\": \"Sillones\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tipoInventarioPut/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tipoInventarioPut",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Tipo Inventario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/tipoInventarioDelete/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tipoInventarioDelete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

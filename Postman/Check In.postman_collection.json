@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "0a0cbbf6-cbd8-45d4-95c8-98e4f2e4bb1b",
+		"name": "Check In",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24018026"
+	},
+	"item": [
+		{
+			"name": "Get Check In",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/checkinGet",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkinGet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Check In ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/checkinGet/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkinGet",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Check in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"anotaciones\": \"Ameno\",\n    \"fechaCheckIn\": \"2022-03-21\",\n    \"montoFinalReserva\": 6969\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/checkinPost",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkinPost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Check In",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/checkinPut/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkinPut",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Check In",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/checkinDelete/6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkinDelete",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

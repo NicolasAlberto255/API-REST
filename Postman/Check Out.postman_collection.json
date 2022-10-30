@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "282b2e1e-096a-4efa-8b4c-670a79ef58df",
+		"name": "Check Out",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24018026"
+	},
+	"item": [
+		{
+			"name": "Get Check Out",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/checkoutGet",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkoutGet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Check Out Fecha Inicio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/inicioReserva?fechaInicio=22-04-21",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inicioReserva"
+					],
+					"query": [
+						{
+							"key": "fechaInicio",
+							"value": "22-04-21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Check Out",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 0,\n    \"fechaCheckOut\": \"2022-06-12\",\n    \"estadoDepartamento\": \"En buen estado\",\n    \"pagoCostoReparaciones\": 0,\n    \"checkIn\":{\n        \"id\": 0,\n        \"anotaciones\": \"Amen\",\n        \"fechaCheckIn\": \"2022-03-21\",\n        \"montoFinalReserva\": 2222\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/checkoutPost",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkoutPost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Check Out",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/checkoutPut/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkoutPut",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Check Out",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/checkoutDelete/6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkoutDelete",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

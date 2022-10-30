@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "1cd6acad-fa70-4d01-85ba-a89e8c46003d",
+		"name": "Chile",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24018026"
+	},
+	"item": [
+		{
+			"name": "Get Regiones",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/region/regiones",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"region",
+						"regiones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comunas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/comuna/comunas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"comuna",
+						"comunas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Provincias",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/provincia/provincias",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"provincia",
+						"provincias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Region By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/region/12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"region",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comuna By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/comuna/12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"comuna",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Provincia By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/provincia/12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"provincia",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Region By Name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/region/nombreRegion?nombreRegion=Coquimbo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"region",
+						"nombreRegion"
+					],
+					"query": [
+						{
+							"key": "nombreRegion",
+							"value": "Coquimbo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comuna By Name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/comuna/nombreComuna?nombreComuna=Quilicura",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"comuna",
+						"nombreComuna"
+					],
+					"query": [
+						{
+							"key": "nombreComuna",
+							"value": "Quilicura"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Provincia By Name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/provincia/nombreProvincia?nombreProvincia=El Loa",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"provincia",
+						"nombreProvincia"
+					],
+					"query": [
+						{
+							"key": "nombreProvincia",
+							"value": "El Loa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comunas By Provincia ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/comuna/comunasByRegionId?id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"comuna",
+						"comunasByRegionId"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Provincia By Region ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/provincia/provinciasByRegionId?id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"provincia",
+						"provinciasByRegionId"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "7150b27b-95e3-42ae-84dc-1169b37954dc",
+		"name": "Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24018026"
+	},
+	"item": [
+		{
+			"name": "Get User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/usuariosGet",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuariosGet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/usuariosGet/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuariosGet",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User By Name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/usuario/nombreUsuario?nombreUsuario=Free",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario",
+						"nombreUsuario"
+					],
+					"query": [
+						{
+							"key": "nombreUsuario",
+							"value": "Free"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User By Apellido",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/usuario/apellidoUsuario?apellidoUsuario=Riquelme",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario",
+						"apellidoUsuario"
+					],
+					"query": [
+						{
+							"key": "apellidoUsuario",
+							"value": "Riquelme"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User By Cedula",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/usuario/cedulaUsuario?cedulaUsuario=18.111.271-0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario",
+						"cedulaUsuario"
+					],
+					"query": [
+						{
+							"key": "cedulaUsuario",
+							"value": "18.111.271-0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreUsuario\": \"Free\",\r\n    \"apellidoUsuario\": \"Usuario\",\r\n    \"correoUsuario\": \"email@test.cl\",\r\n    \"cedulaUsuario\": \"18.111.271-0\",\r\n    \"telefonoUsuario\": 959039048,\r\n    \"passwordUsuario\": \"password123\",\r\n    \"rolUsuario\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/usuario/usuariosSave",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario",
+						"usuariosSave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreUsuario\": \"Test\",\r\n    \"apellidoUsuario\": \"Test\",\r\n    \"correoUsuario\": \"test@test.cl\",\r\n    \"cedulaUsuario\": \"12.538.271-0\",\r\n    \"telefonoUsuario\": \"testtelefono\",\r\n    \"passwordUsuario\": \"123password\",\r\n    \"tipoUsuario\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/usuariosPut/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuariosPut",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/usuariosDelete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuariosDelete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
