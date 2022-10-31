@@ -2,7 +2,6 @@ package com.rest.api.services;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,10 +41,6 @@ public class ReservaServicioService {
 
     public Servicios findById(Integer id) {
         return serviciosRepository.findById(id).get();
-    }
-
-    public List<Servicios> getByIds(Set<Integer> ids) {
-        return serviciosRepository.getByIds(ids);
     }
 
     public Reserva addReservaServicios(ReservaRequest reservaRequest) {

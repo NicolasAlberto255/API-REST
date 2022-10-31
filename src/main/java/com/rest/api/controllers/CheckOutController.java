@@ -7,13 +7,13 @@ import com.rest.api.models.CheckOut;
 import com.rest.api.services.CheckOutService;
 
 @RestController
-@RequestMapping("checkOut/")
+@RequestMapping("checkout/")
 public class CheckOutController {
 
     @Autowired
     CheckOutService checkOutService;
 
-    @GetMapping("checkoutGet")
+    @GetMapping("checkouts")
     public ArrayList<CheckOut> getUser() {
         return checkOutService.getCheckOut();
     }

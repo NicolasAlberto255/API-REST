@@ -13,7 +13,7 @@ public class TipoInventarioController {
     @Autowired
     TipoInventarioService tipoInventarioService;
 
-    @GetMapping("tipoInventarioGet")
+    @GetMapping("tipoInventario")
     public ArrayList<TipoInventario> getTipoInventario() {
         return tipoInventarioService.getTipoInventario();
     }

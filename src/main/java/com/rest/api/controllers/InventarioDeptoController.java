@@ -13,7 +13,7 @@ public class InventarioDeptoController {
     @Autowired
     InventarioDeptoService inventarioDeptoService;
 
-    @GetMapping("inventarioDeptoGet")
+    @GetMapping("inventarioDeptos")
     public ArrayList<InventarioDepto> getInventarioDepto() {
         return inventarioDeptoService.getInventarioDepto();
     }

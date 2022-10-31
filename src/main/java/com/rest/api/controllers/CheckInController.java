@@ -13,7 +13,7 @@ public class CheckInController {
     @Autowired
     CheckInService checkInService;
 
-    @GetMapping("checkinGet")
+    @GetMapping("checkins")
     public ArrayList<CheckIn> getCheckIn() {
         return checkInService.getCheckIn();
     }
@@ -23,7 +23,7 @@ public class CheckInController {
         return this.checkInService.findById(id);
     }
 
-    @PostMapping("checkInSave")
+    @PostMapping("checkinSave")
     public String saveCheckIn(@RequestBody CheckIn checkIn) {
         this.checkInService.saveCheckIn(checkIn);
         return "CheckIn Guardado";
