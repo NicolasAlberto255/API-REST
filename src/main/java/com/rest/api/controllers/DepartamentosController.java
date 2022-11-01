@@ -7,12 +7,13 @@ import com.rest.api.models.Departamentos;
 import com.rest.api.services.DepartamentosService;
 
 @RestController
+@RequestMapping("departamentos/")
 public class DepartamentosController {
 
     @Autowired
     DepartamentosService departamentosService;
 
-    @GetMapping("departamentosGet")
+    @GetMapping("departamentos")
     public ArrayList<Departamentos> getDepartamentos() {
         return departamentosService.getDepartamentos();
     }
@@ -23,7 +24,7 @@ public class DepartamentosController {
     }
 
     @PostMapping("departamentosSave")
-    public String saveCheckIn(@RequestBody Departamentos departamentos) {
+    public String saveDepartamento(@RequestBody Departamentos departamentos) {
         this.departamentosService.saveDepartamentos(departamentos);
         return "Departamento Guardado";
     }
@@ -31,9 +32,10 @@ public class DepartamentosController {
     @PutMapping("departamentosPut/{id}")
     public String updateDepartamentos(@PathVariable("id") int id, @RequestBody Departamentos departamentos) {
         Departamentos departamentosUpdate = departamentosService.findById(id);
-        departamentosUpdate.setIdRegionDepto(departamentos.getIdRegionDepto());
-        departamentosUpdate.setIdCiudadDepto(departamentos.getIdCiudadDepto());
-        departamentosUpdate.setIdComunaDepto(departamentos.getIdComunaDepto());
+        departamentosUpdate.setNombreDepartamento(departamentos.getNombreDepartamento());
+        departamentosUpdate.setNombreRegionDepto(departamentos.getNombreRegionDepto());
+        departamentosUpdate.setNombreProvinciaDepto(departamentos.getNombreProvinciaDepto());
+        departamentosUpdate.setNombreComunaDepto(departamentos.getNombreComunaDepto());
         departamentosUpdate.setnEdificio(departamentos.getnEdificio());
         departamentosUpdate.setnBanos(departamentos.getnBanos());
         departamentosUpdate.setnHabitacion(departamentos.getnHabitacion());

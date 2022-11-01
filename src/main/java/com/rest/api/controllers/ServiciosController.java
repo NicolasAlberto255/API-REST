@@ -10,13 +10,13 @@ import com.rest.api.models.Servicios;
 import com.rest.api.services.ReservaServicioService;
 
 @RestController
-@RequestMapping("servicios/")
+@RequestMapping("servicio/")
 public class ServiciosController {
 
     @Autowired
     ReservaServicioService reservaServiciosService;
 
-    @GetMapping("serviciosGet")
+    @GetMapping("servicios")
     public List<Servicios> getServicios() {
         return reservaServiciosService.getServicios();
     }

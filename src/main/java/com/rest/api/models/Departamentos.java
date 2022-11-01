@@ -14,14 +14,17 @@ public class Departamentos {
     @Column(name = "idDepartamentos")
     private int id;
 
-    @Column(name = "idRegionDepto")
-    private int idRegionDepto;
+    @Column(name = "nombreDepartamento")
+    private String nombreDepartamento;
 
-    @Column(name = "idCiudadDepto")
-    private int idCiudadDepto;
+    @Column(name = "nombreRegionDepto")
+    private String nombreRegionDepto;
 
-    @Column(name = "idComunaDepto")
-    private int idComunaDepto;
+    @Column(name = "nombreProvinciaDepto")
+    private String nombreProvinciaDepto;
+
+    @Column(name = "nombreComunaDepto")
+    private String nombreComunaDepto;
 
     @Column(name = "nEdificio")
     private int nEdificio;
@@ -56,28 +59,36 @@ public class Departamentos {
         this.id = id;
     }
 
-    public int getIdRegionDepto() {
-        return idRegionDepto;
+    public String getNombreDepartamento() {
+        return nombreDepartamento;
     }
 
-    public void setIdRegionDepto(int idRegionDepto) {
-        this.idRegionDepto = idRegionDepto;
+    public void setNombreDepartamento(String nombreDepartamento) {
+        this.nombreDepartamento = nombreDepartamento;
     }
 
-    public int getIdCiudadDepto() {
-        return idCiudadDepto;
+    public String getNombreRegionDepto() {
+        return nombreRegionDepto;
     }
 
-    public void setIdCiudadDepto(int idCiudadDepto) {
-        this.idCiudadDepto = idCiudadDepto;
+    public void setNombreRegionDepto(String nombreRegionDepto) {
+        this.nombreRegionDepto = nombreRegionDepto;
     }
 
-    public int getIdComunaDepto() {
-        return idComunaDepto;
+    public String getNombreProvinciaDepto() {
+        return nombreProvinciaDepto;
     }
 
-    public void setIdComunaDepto(int idComunaDepto) {
-        this.idComunaDepto = idComunaDepto;
+    public void setNombreProvinciaDepto(String nombreProvinciaDepto) {
+        this.nombreProvinciaDepto = nombreProvinciaDepto;
+    }
+
+    public String getNombreComunaDepto() {
+        return nombreComunaDepto;
+    }
+
+    public void setNombreComunaDepto(String nombreComunaDepto) {
+        this.nombreComunaDepto = nombreComunaDepto;
     }
 
     public int getnEdificio() {

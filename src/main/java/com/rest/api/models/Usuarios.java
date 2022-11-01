@@ -31,11 +31,17 @@ public class Usuarios {
     @Column(name = "telefonoUsuario")
     private int telefonoUsuario;
 
-    @Column(name = "passwordUsuario")
-    private String passwordUsuario;
-
     @Column(name = "rolUsuario")
     private String rolUsuario;
+
+    @Column(name = "regionUsuario")
+    private String regionUsuario;
+
+    @Column(name = "provinciaUsuario")
+    private String provinciaUsuario;
+
+    @Column(name = "comunaUsuario")
+    private String comunaUsuario;
 
     @ManyToMany(mappedBy = "usuarios")
     @JsonIgnore
@@ -92,20 +98,40 @@ public class Usuarios {
         this.telefonoUsuario = telefonoUsuario;
     }
 
-    public String getPasswordUsuario() {
-        return passwordUsuario;
-    }
-
-    public void setPasswordUsuario(String passwordUsuario) {
-        this.passwordUsuario = passwordUsuario;
-    }
-
     public String getRolUsuario() {
         return rolUsuario;
     }
 
     public void setRolUsuario(String rolUsuario) {
         this.rolUsuario = rolUsuario;
+    }
+
+    public void setTelefonoUsuario(int telefonoUsuario) {
+        this.telefonoUsuario = telefonoUsuario;
+    }
+
+    public String getRegionUsuario() {
+        return regionUsuario;
+    }
+
+    public void setRegionUsuario(String regionUsuario) {
+        this.regionUsuario = regionUsuario;
+    }
+
+    public String getProvinciaUsuario() {
+        return provinciaUsuario;
+    }
+
+    public void setProvinciaUsuario(String provinciaUsuario) {
+        this.provinciaUsuario = provinciaUsuario;
+    }
+
+    public String getComunaUsuario() {
+        return comunaUsuario;
+    }
+
+    public void setComunaUsuario(String comunaUsuario) {
+        this.comunaUsuario = comunaUsuario;
     }
 
     public Set<Reserva> getReservas() {

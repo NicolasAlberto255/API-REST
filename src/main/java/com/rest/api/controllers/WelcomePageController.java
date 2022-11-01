@@ -12,15 +12,32 @@ public class WelcomePageController {
         return "Bienvenido a API-RENT \n <br>" +
                 "Los siguientes endpoint son utilizados para crear, guardar, actualizar y eliminar. \n <br> \n <br>" +
 
+                "Departamentos Endpoint \n <br>" +
+                "Obtener todos los Departamentos: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/departamentos \n <br>"
+                +
+                "Obtener un Departamento por ID: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/departamentosGet/{id} \n <br>"
+                +
+                "Guardar un Departamento: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/departamentosSave \n <br>"
+                +
+                "Actualizar un Departamento: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/departamentosPut/{id} \n <br>"
+                +
+                "Eliminar un Departamento: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/departamentosDelete/{id} \n <br> \n <br>"
+                +
+
                 "Servicios Endpoint \n <br>" +
                 "Obtener todos los Servicios: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicios/serviciosGet \n <br>" +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicio/servicios \n <br>" +
                 "Obtener los Servicios por Nombre: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicios/serviciosName \n <br>" +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicio/serviciosName \n <br>" +
                 "Obtener los Servicios por ID: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicios/serviciosGet/{id} \n <br>" +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicio/serviciosGet/{id} \n <br>" +
                 "Guardar Servicios: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicios/serviciosSave \n <br> \n <br>"
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicio/serviciosSave \n <br> \n <br>"
                 +
 
                 "Regiones Endpoint \n <br>" +

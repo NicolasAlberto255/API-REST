@@ -18,7 +18,7 @@ public class ReservaController {
     @Autowired
     ReservaRepository reservaRepository;
 
-    @GetMapping("reserva")
+    @GetMapping("reservas")
     public List<Reserva> getReserva() {
         return reservaServiciosService.getReserva();
     }

@@ -54,7 +54,9 @@ public class UsuarioController {
         usuarioUpdate.setCorreoUsuario(usuario.getCorreoUsuario());
         usuarioUpdate.setCedulaUsuario(usuario.getCedulaUsuario());
         usuarioUpdate.setTelefonoUsuario(usuario.getTelefonoUsuario());
-        usuarioUpdate.setPasswordUsuario(usuario.getPasswordUsuario());
+        usuarioUpdate.setRegionUsuario(usuario.getRegionUsuario());
+        usuarioUpdate.setProvinciaUsuario(usuario.getProvinciaUsuario());
+        usuarioUpdate.setComunaUsuario(usuario.getComunaUsuario());
         usuarioService.saveUsuario(usuarioUpdate);
         return "Usuario actualizado";
     }
