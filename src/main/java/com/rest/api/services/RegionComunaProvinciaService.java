@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 
 import com.rest.api.repositories.ComunaRepository;
-import com.rest.api.repositories.ProvinciaRepository;
 import com.rest.api.repositories.RegionRepository;
 import com.rest.api.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,6 @@ public class RegionComunaProvinciaService {
     RegionRepository regionRepository;
 
     @Autowired
-    ProvinciaRepository provinciaRepository;
-
-    @Autowired
     ComunaRepository comunaRepository;
 
     public RegionComunaProvinciaService() {
@@ -27,10 +23,6 @@ public class RegionComunaProvinciaService {
 
     public List<Region> getRegiones() {
         return regionRepository.findAll();
-    }
-
-    public List<Provincia> getProvincias() {
-        return provinciaRepository.findAll();
     }
 
     public List<Comuna> getComunas() {
@@ -45,20 +37,8 @@ public class RegionComunaProvinciaService {
         return comunaRepository.findById(id);
     }
 
-    public Provincia getProvinciaById(int id) {
-        return provinciaRepository.findById(id);
-    }
-
-    public List<Provincia> getProvinciasByIdRegion(Integer id) {
-        return provinciaRepository.getProvinciasByIdRegion(id);
-    }
-
     public List<Comuna> getComunasByIdRegion(Integer id) {
         return comunaRepository.getComunasByIdRegion(id);
-    }
-
-    public List<Provincia> getProvinciasByIds(Set<Integer> ids) {
-        return provinciaRepository.getByIds(ids);
     }
 
     public List<Comuna> getComunasByIds(Set<Integer> ids) {
@@ -71,9 +51,5 @@ public class RegionComunaProvinciaService {
 
     public List<Comuna> getComunaByName(String nombreComuna) {
         return comunaRepository.findByNombreComuna(nombreComuna);
-    }
-
-    public List<Provincia> getProvinciaByName(String nombreProvincia) {
-        return provinciaRepository.findByNombreProvincia(nombreProvincia);
     }
 }
