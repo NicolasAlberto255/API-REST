@@ -38,6 +38,9 @@ public class Departamentos {
     @Column(name = "nBanos")
     private int nBanos;
 
+    @Column(name = "vNoche")
+    private int vNoche;
+
     @Column(name = "balcon")
     private Boolean balcon;
 
@@ -121,6 +124,14 @@ public class Departamentos {
 
     public void setnBanos(int nBanos) {
         this.nBanos = nBanos;
+    }
+
+    public int getvNoche() {
+        return vNoche;
+    }
+
+    public void setvNoche(int vNoche) {
+        this.vNoche = vNoche;
     }
 
     public Boolean getBalcon() {

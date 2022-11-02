@@ -40,6 +40,7 @@ public class DepartamentosController {
         departamentosUpdate.setnBanos(departamentos.getnBanos());
         departamentosUpdate.setnHabitacion(departamentos.getnHabitacion());
         departamentosUpdate.setBalcon(departamentos.getBalcon());
+        departamentosUpdate.setvNoche(departamentos.getvNoche());
         departamentosService.saveDepartamentos(departamentosUpdate);
         return "Departamentos actualizados";
     }
