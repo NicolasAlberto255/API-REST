@@ -37,9 +37,6 @@ public class Usuarios {
     @Column(name = "regionUsuario")
     private String regionUsuario;
 
-    @Column(name = "provinciaUsuario")
-    private String provinciaUsuario;
-
     @Column(name = "comunaUsuario")
     private String comunaUsuario;
 
@@ -116,14 +113,6 @@ public class Usuarios {
 
     public void setRegionUsuario(String regionUsuario) {
         this.regionUsuario = regionUsuario;
-    }
-
-    public String getProvinciaUsuario() {
-        return provinciaUsuario;
-    }
-
-    public void setProvinciaUsuario(String provinciaUsuario) {
-        this.provinciaUsuario = provinciaUsuario;
     }
 
     public String getComunaUsuario() {

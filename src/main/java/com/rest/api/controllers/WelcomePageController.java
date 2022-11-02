@@ -59,20 +59,6 @@ public class WelcomePageController {
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/comuna/comunasByRegionId \n <br> \n <br>"
                 +
 
-                "Provincias Endpioint \n <br>" +
-                "Obtener todas las Provincias: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/provincia/provincias \n <br>" +
-                "Obtener las Provincias por Nombre: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/provincia/nombreProvincia \n <br>" +
-                "Obtener las Provincias por ID:" +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/provincia/{id} \n <br>" +
-                "Obtener las Provincias por ID de Región: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/provincia/provinciasByRegionId \n <br>"
-                +
-                "Obtener las Provincias por ID de Comuna: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/provincia/provinciasByComunaId \n <br> \n <br>"
-                +
-
                 "Usuarios Endpoint \n <br>" +
                 "Obtener todos los Usuarios: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/usuarios \n <br>" +
