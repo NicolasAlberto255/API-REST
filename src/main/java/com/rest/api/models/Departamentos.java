@@ -20,9 +20,6 @@ public class Departamentos {
     @Column(name = "nombreRegionDepto")
     private String nombreRegionDepto;
 
-    @Column(name = "nombreProvinciaDepto")
-    private String nombreProvinciaDepto;
-
     @Column(name = "nombreComunaDepto")
     private String nombreComunaDepto;
 
@@ -76,14 +73,6 @@ public class Departamentos {
 
     public void setNombreRegionDepto(String nombreRegionDepto) {
         this.nombreRegionDepto = nombreRegionDepto;
-    }
-
-    public String getNombreProvinciaDepto() {
-        return nombreProvinciaDepto;
-    }
-
-    public void setNombreProvinciaDepto(String nombreProvinciaDepto) {
-        this.nombreProvinciaDepto = nombreProvinciaDepto;
     }
 
     public String getNombreComunaDepto() {

@@ -34,7 +34,6 @@ public class DepartamentosController {
         Departamentos departamentosUpdate = departamentosService.findById(id);
         departamentosUpdate.setNombreDepartamento(departamentos.getNombreDepartamento());
         departamentosUpdate.setNombreRegionDepto(departamentos.getNombreRegionDepto());
-        departamentosUpdate.setNombreProvinciaDepto(departamentos.getNombreProvinciaDepto());
         departamentosUpdate.setNombreComunaDepto(departamentos.getNombreComunaDepto());
         departamentosUpdate.setnEdificio(departamentos.getnEdificio());
         departamentosUpdate.setnBanos(departamentos.getnBanos());
