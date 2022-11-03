@@ -31,7 +31,7 @@ jobs:
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: Deploy
-          service-name: api-rent
-          app-name: api-rent
+          service-name: rent-api
+          app-name: rent-api
           use-staging-deployment: false
-          package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar # Path to the jar file to deploy
+          package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
