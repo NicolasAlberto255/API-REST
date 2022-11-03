@@ -34,4 +34,4 @@ jobs:
           service-name: api-rent
           app-name: api-rent
           use-staging-deployment: false
-          package: C:\Users\Nicolas\OneDrive\Escritorio\Portafolio\API-REST\target\api-0.0.1-SNAPSHOT.jar
+          package: ${{ env.ASC_PACKAGE_PATH }}C:\Users\Nicolas\OneDrive\Escritorio\Portafolio\API-REST\target\api-0.0.1-SNAPSHOT.jar
