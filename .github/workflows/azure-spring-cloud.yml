@@ -32,6 +32,6 @@ jobs:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: Deploy
           service-name: api-rent-instance
-          app-name: spring-blog
+          app-name: api-rent-instance
           use-staging-deployment: false
           package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
