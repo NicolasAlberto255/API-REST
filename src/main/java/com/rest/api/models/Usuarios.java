@@ -4,17 +4,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "usuario")
 public class Usuarios {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idUsuario")
-    private int id;
+    private int idUsuario;
 
     @Column(name = "nombreUsuario")
     private String nombreUsuario;
@@ -40,6 +38,9 @@ public class Usuarios {
     @Column(name = "comunaUsuario")
     private String comunaUsuario;
 
+    @Column(name = "passwordUsuario")
+    private String passwordUsuario;
+
     @ManyToMany(mappedBy = "usuarios")
     @JsonIgnore
     private Set<Reserva> usuarios = new HashSet<>();
@@ -47,12 +48,12 @@ public class Usuarios {
     public Usuarios() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombreUsuario() {
@@ -87,14 +88,6 @@ public class Usuarios {
         this.cedulaUsuario = cedulaUsuario;
     }
 
-    public Integer getTelefonoUsuario() {
-        return telefonoUsuario;
-    }
-
-    public void setTelefonoUsuario(Integer telefonoUsuario) {
-        this.telefonoUsuario = telefonoUsuario;
-    }
-
     public String getRolUsuario() {
         return rolUsuario;
     }
@@ -105,6 +98,18 @@ public class Usuarios {
 
     public void setTelefonoUsuario(int telefonoUsuario) {
         this.telefonoUsuario = telefonoUsuario;
+    }
+
+    public int getTelefonoUsuario() {
+        return telefonoUsuario;
+    }
+
+    public String getPasswordUsuario() {
+        return passwordUsuario;
+    }
+
+    public void setPasswordUsuario(String passwordUsuario) {
+        this.passwordUsuario = passwordUsuario;
     }
 
     public String getRegionUsuario() {

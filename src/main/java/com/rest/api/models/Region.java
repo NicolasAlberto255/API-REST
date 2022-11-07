@@ -9,7 +9,7 @@ public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idRegion")
-    private int idRegion;
+    private int id;
 
     @Column(name = "nombreRegion")
     private String nombreRegion;
@@ -17,17 +17,17 @@ public class Region {
     public Region() {
     }
 
-    public Region(int idRegion, String nombreRegion) {
-        this.idRegion = idRegion;
+    public Region(int id, String nombreRegion) {
+        this.id = id;
         this.nombreRegion = nombreRegion;
     }
 
     public int getIdRegion() {
-        return idRegion;
+        return id;
     }
 
-    public void setIdRegion(int idRegion) {
-        this.idRegion = idRegion;
+    public void setIdRegion(int id) {
+        this.id = id;
     }
 
     public String getNombreRegion() {

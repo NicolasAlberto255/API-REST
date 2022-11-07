@@ -9,7 +9,7 @@ public class Comuna {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idComuna")
-    private int idComuna;
+    private int id;
 
     @Column(name = "nombreComuna")
     private String nombreComuna;
@@ -20,18 +20,18 @@ public class Comuna {
     public Comuna() {
     }
 
-    public Comuna(int idComuna, String nombreComuna, int idRegion) {
-        this.idComuna = idComuna;
+    public Comuna(int id, String nombreComuna, int idRegion) {
+        this.id = id;
         this.nombreComuna = nombreComuna;
         this.idRegion = idRegion;
     }
 
     public int getIdComuna() {
-        return idComuna;
+        return id;
     }
 
-    public void setIdComuna(int idComuna) {
-        this.idComuna = idComuna;
+    public void setIdComuna(int id) {
+        this.id = id;
     }
 
     public String getNombreComuna() {

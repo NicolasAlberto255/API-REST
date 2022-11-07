@@ -13,7 +13,7 @@ public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idReserva")
-    private int id;
+    private int idReserva;
 
     @JsonFormat(pattern = "dd-mm-yyyy", timezone = "America/Santiago", shape = JsonFormat.Shape.STRING)
     @Column(name = "fechaInicio")
@@ -30,27 +30,27 @@ public class Reserva {
     @Column(name = "precioAbono")
     private int precioAbono;
 
-    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.ALL, CascadeType.REFRESH })
     @JoinTable(name = "reserva_servicios", joinColumns = @JoinColumn(name = "idReserva"), inverseJoinColumns = @JoinColumn(name = "idServicios"))
     @JsonIgnore
     private Set<Servicios> servicios = new HashSet<>();
 
-    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
     @JoinColumn(name = "idUsuarios")
     @JsonIgnore
     private Set<Usuarios> usuarios = new HashSet<>();
 
-    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
     @JoinColumn(name = "idDepartamentos")
     @JsonIgnore
     private Set<Departamentos> departamentos = new HashSet<>();
 
     public int getId() {
-        return id;
+        return idReserva;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int idReserva) {
+        this.idReserva = idReserva;
     }
 
     public Date getFechaInicio() {

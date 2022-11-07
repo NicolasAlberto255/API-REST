@@ -20,7 +20,7 @@ public interface ComunaRepository extends JpaRepository<Comuna, Integer> {
 
     List<Comuna> findByNombreComuna(String nombreComuna);
 
-    List<Comuna> getComunasByIdRegion(int idRegion);
+    List<Comuna> getComunasByIdRegion(int id);
 
     @Query(value = "SELECT ID_COMUNA, ID_REGION FROM COMUNA WHERE ID_COMUNA = ?1 AND ID_REGION = ?2", nativeQuery = true)
     List<Object[]> getByIdComunaAndIdRegion(@Param("idComuna") int idComuna, @Param("idRegion") int idProvincia);

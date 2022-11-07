@@ -52,24 +52,24 @@ public class ReservaServicioService {
         reserva.setPrecioAbono(reservaRequest.precioAbono);
         reserva.setUsuarios(reservaRequest.usuarios.stream().map(usuarios -> {
             Usuarios usuariosContents = usuarios;
-            if (usuarios.getId() > 0) {
-                usuariosContents = usuariosRepository.findById(usuarios.getId());
+            if (usuarios.getIdUsuario() > 0) {
+                usuariosContents = usuariosRepository.findById(usuarios.getIdUsuario());
             }
             usuariosContents.addReservas(reserva);
             return usuariosContents;
         }).collect(Collectors.toSet()));
         reserva.setDepartamentos(reservaRequest.departamentos.stream().map(departamentos -> {
             Departamentos departamentosContents = departamentos;
-            if (departamentos.getId() > 0) {
-                departamentosContents = departamentosRepository.findById(departamentos.getId());
+            if (departamentos.getIdDepartamentos() > 0) {
+                departamentosContents = departamentosRepository.findById(departamentos.getIdDepartamentos());
             }
             departamentosContents.addReservas(reserva);
             return departamentos;
         }).collect(Collectors.toSet()));
         reserva.setServicios(reservaRequest.servicios.stream().map(servicios -> {
             Servicios serviciosContents = servicios;
-            if (serviciosContents.getId() > 0) {
-                serviciosContents = serviciosRepository.findById(serviciosContents.getId());
+            if (serviciosContents.getIdServicios() > 0) {
+                serviciosContents = serviciosRepository.findById(serviciosContents.getIdServicios());
             }
             serviciosContents.addReservas(reserva);
             return serviciosContents;
