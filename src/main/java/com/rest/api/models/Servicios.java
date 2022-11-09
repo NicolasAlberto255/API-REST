@@ -19,6 +19,12 @@ public class Servicios {
     @Column(name = "descripcionServicios")
     private String descripcionServicios;
 
+    @Column(name = "precioServicios")
+    private int precioServicios;
+
+    @Column(name = "disponibilidadServicios")
+    private Boolean disponibilidadServicios;
+
     @ManyToMany(mappedBy = "servicios")
     @JsonIgnore
     private Set<Reserva> servicios = new HashSet<>();
@@ -48,6 +54,22 @@ public class Servicios {
 
     public void setDescripcionServicios(String descripcionServicios) {
         this.descripcionServicios = descripcionServicios;
+    }
+
+    public int getPrecioServicios() {
+        return precioServicios;
+    }
+
+    public void setPrecioServicios(int precioServicios) {
+        this.precioServicios = precioServicios;
+    }
+
+    public Boolean getDisponibilidadServicios() {
+        return disponibilidadServicios;
+    }
+
+    public void setDisponibilidadServicios(Boolean disponibilidadServicios) {
+        this.disponibilidadServicios = disponibilidadServicios;
     }
 
     public Set<Reserva> getReservas() {

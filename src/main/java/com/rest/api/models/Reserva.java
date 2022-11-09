@@ -30,6 +30,12 @@ public class Reserva {
     @Column(name = "precioAbono")
     private int precioAbono;
 
+    @Column(name = "precioTotal")
+    private int precioTotal;
+
+    @Column(name = "estadoReserva")
+    private String estadoReserva;
+
     @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.ALL, CascadeType.REFRESH })
     @JoinTable(name = "reserva_servicios", joinColumns = @JoinColumn(name = "idReserva"), inverseJoinColumns = @JoinColumn(name = "idServicios"))
     @JsonIgnore
@@ -40,16 +46,16 @@ public class Reserva {
     @JsonIgnore
     private Set<Usuarios> usuarios = new HashSet<>();
 
-    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
+    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
     @JoinColumn(name = "idDepartamentos")
     @JsonIgnore
     private Set<Departamentos> departamentos = new HashSet<>();
 
-    public int getId() {
+    public int getIdReserva() {
         return idReserva;
     }
 
-    public void setId(int idReserva) {
+    public void setIdReserva(int idReserva) {
         this.idReserva = idReserva;
     }
 
@@ -83,6 +89,22 @@ public class Reserva {
 
     public void setPrecioAbono(int precioAbono) {
         this.precioAbono = precioAbono;
+    }
+
+    public int getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(int precioTotal) {
+        this.precioTotal = precioTotal;
+    }
+
+    public String getEstadoReserva() {
+        return estadoReserva;
+    }
+
+    public void setEstadoReserva(String estadoReserva) {
+        this.estadoReserva = estadoReserva;
     }
 
     public Set<Servicios> getServicios() {

@@ -41,7 +41,10 @@ public class Departamentos {
     @Column(name = "balcon")
     private Boolean balcon;
 
-    @ManyToMany(mappedBy = "departamentos")
+    @Column(name = "estadoDepartamento")
+    private String estadoDepartamento;
+
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "departamentos")
     @JsonIgnore
     private Set<Reserva> departamentos = new HashSet<>();
 
@@ -131,6 +134,14 @@ public class Departamentos {
         this.balcon = balcon;
     }
 
+    public String getEstadoDepartamento() {
+        return estadoDepartamento;
+    }
+
+    public void setEstadoDepartamento(String estadoDepartamento) {
+        this.estadoDepartamento = estadoDepartamento;
+    }
+
     public Set<Reserva> getReservas() {
         return departamentos;
     }
@@ -142,5 +153,4 @@ public class Departamentos {
     public void addReservas(Reserva departamentos) {
         this.departamentos.add(departamentos);
     }
-
 }

@@ -24,6 +24,9 @@ public class ReservaServicioService {
     @Autowired
     UsuariosRepository usuariosRepository;
 
+    @Autowired
+    DepartamentosService departamentosService;
+
     public ReservaServicioService() {
     }
 
@@ -45,11 +48,13 @@ public class ReservaServicioService {
 
     public Reserva addReservaServicios(ReservaRequest reservaRequest) {
         Reserva reserva = new Reserva();
-        reserva.setId(reservaRequest.id);
+        reserva.setIdReserva(reservaRequest.id);
         reserva.setFechaInicio(reservaRequest.fechaInicio);
         reserva.setFechaFin(reservaRequest.fechaFin);
         reserva.setFechaCreacion(reservaRequest.fechaCreacion);
         reserva.setPrecioAbono(reservaRequest.precioAbono);
+        reserva.setPrecioTotal(reservaRequest.precioTotal);
+        reserva.setEstadoReserva(reservaRequest.estadoReserva);
         reserva.setUsuarios(reservaRequest.usuarios.stream().map(usuarios -> {
             Usuarios usuariosContents = usuarios;
             if (usuarios.getIdUsuario() > 0) {
@@ -62,6 +67,7 @@ public class ReservaServicioService {
             Departamentos departamentosContents = departamentos;
             if (departamentos.getIdDepartamentos() > 0) {
                 departamentosContents = departamentosRepository.findById(departamentos.getIdDepartamentos());
+                departamentosContents.setEstadoDepartamento("Activo");
             }
             departamentosContents.addReservas(reserva);
             return departamentos;
