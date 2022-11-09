@@ -1,8 +1,6 @@
 package com.rest.api.services;
 
 import java.util.List;
-import java.util.Set;
-
 import com.rest.api.repositories.ComunaRepository;
 import com.rest.api.repositories.RegionRepository;
 import com.rest.api.models.*;
@@ -39,10 +37,6 @@ public class RegionComunaProvinciaService {
 
     public List<Comuna> getComunasByIdRegion(Integer id) {
         return comunaRepository.getComunasByIdRegion(id);
-    }
-
-    public List<Comuna> getComunasByIds(Set<Integer> ids) {
-        return comunaRepository.getByIds(ids);
     }
 
     public List<Region> getRegionByName(String nombreRegion) {

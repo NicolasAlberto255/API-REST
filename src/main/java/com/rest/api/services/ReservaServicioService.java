@@ -42,6 +42,10 @@ public class ReservaServicioService {
         return serviciosRepository.findServicioByNombreServicios(nombreServicios);
     }
 
+    public List<Servicios> getServicioByDisponibilidad(String disponibilidadServicios) {
+        return serviciosRepository.getServicioByDisponibilidad(disponibilidadServicios);
+    }
+
     public Servicios findById(Integer id) {
         return serviciosRepository.findById(id).get();
     }
@@ -94,14 +98,6 @@ public class ReservaServicioService {
 
     public List<Reserva> findByFechaCreacion(Date fechaCreacion) {
         return reservaRepository.findByFechaCreacion(fechaCreacion);
-    }
-
-    public List<Reserva> getByPrecioAbono(int precioAbono) {
-        return reservaRepository.getByPrecioAbono(precioAbono);
-    }
-
-    public Reserva getById(int idReserva) {
-        return reservaRepository.getById(idReserva);
     }
 
     public List<Reserva> getReserva() {

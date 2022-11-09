@@ -21,6 +21,11 @@ public class ServiciosController {
         return reservaServiciosService.getServicios();
     }
 
+    @GetMapping("disponibles")
+    public List<Servicios> getServicioByDisponibilidad(@RequestParam String disponibilidadServicios) {
+        return reservaServiciosService.getServicioByDisponibilidad(disponibilidadServicios);
+    }
+
     @GetMapping("servicioName")
     public List<Servicios> getServicioByNombreServivicios(@RequestParam String nombreServicios) {
         return reservaServiciosService.findServicioByNombreServicios(nombreServicios);

@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.rest.api.models.Comuna;
 import java.util.List;
-import java.util.Set;
 import javax.transaction.Transactional;
 
 @Repository
@@ -14,9 +13,6 @@ import javax.transaction.Transactional;
 public interface ComunaRepository extends JpaRepository<Comuna, Integer> {
 
     Comuna findById(int id);
-
-    @Query("FROM Comuna WHERE id = ?1")
-    List<Comuna> getByIds(Set<Integer> id);
 
     List<Comuna> findByNombreComuna(String nombreComuna);
 
