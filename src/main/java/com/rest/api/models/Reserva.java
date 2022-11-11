@@ -36,6 +36,9 @@ public class Reserva {
     @Column(name = "estadoReserva")
     private String estadoReserva;
 
+    @Column(name = "cntPersonas")
+    private int cntPersonas;
+
     @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.ALL, CascadeType.REFRESH })
     @JoinTable(name = "reserva_servicios", joinColumns = @JoinColumn(name = "idReserva"), inverseJoinColumns = @JoinColumn(name = "idServicios"))
     @JsonIgnore
@@ -105,6 +108,14 @@ public class Reserva {
 
     public void setEstadoReserva(String estadoReserva) {
         this.estadoReserva = estadoReserva;
+    }
+
+    public int getCntPersonas() {
+        return cntPersonas;
+    }
+
+    public void setCntPersonas(int cntPersonas) {
+        this.cntPersonas = cntPersonas;
     }
 
     public Set<Servicios> getServicios() {

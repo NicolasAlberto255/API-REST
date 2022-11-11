@@ -37,6 +37,7 @@ public class ReservaService {
         reserva.setPrecioAbono(reservaRequest.precioAbono);
         reserva.setPrecioTotal(reservaRequest.precioTotal);
         reserva.setEstadoReserva(reservaRequest.estadoReserva);
+        reserva.setCntPersonas(reservaRequest.cntPersonas);
         reserva.setUsuarios(reservaRequest.usuarios.stream().map(usuarios -> {
             Usuarios usuariosContents = usuarios;
             if (usuarios.getIdUsuario() > 0) {
