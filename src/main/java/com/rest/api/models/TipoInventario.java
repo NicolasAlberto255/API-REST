@@ -20,12 +20,6 @@ public class TipoInventario {
     public TipoInventario() {
     }
 
-    public TipoInventario(Integer id, String nombreTipo, InventarioDepto inventarioDepto) {
-        this.id = id;
-        this.nombreTipo = nombreTipo;
-        this.inventarioDepto = inventarioDepto;
-    }
-
     public Integer getId() {
         return id;
     }

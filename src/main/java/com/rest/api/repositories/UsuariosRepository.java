@@ -3,6 +3,7 @@ package com.rest.api.repositories;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import com.rest.api.models.Usuarios;
 
@@ -15,6 +16,15 @@ public interface UsuariosRepository extends JpaRepository<Usuarios, Integer> {
     List<Usuarios> findUsuarioByApellidoUsuario(String apellidoUsuario);
 
     List<Usuarios> findUsuarioByCedulaUsuario(String cedulaUsuario);
+
+    @Query(value = "SELECT * FROM USUARIO WHERE COMUNA_USUARIO = ?1", nativeQuery = true)
+    List<Usuarios> getUsuariosByComuna(String comunaUsuario);
+
+    @Query(value = "SELECT * FROM USUARIO WHERE REGION_USUARIO = ?1", nativeQuery = true)
+    List<Usuarios> getUsuariosByRegion(String regionUsuario);
+
+    @Query(value = "SELECT * FROM USUARIO WHERE ESTADO_USUARIO = ?1", nativeQuery = true)
+    List<Usuarios> getUsuariosByEstado(String estadoUsuario);
 
     public Usuarios findById(int id);
 }

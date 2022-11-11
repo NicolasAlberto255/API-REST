@@ -36,6 +36,18 @@ public class UsuarioService {
         return usuarioRepository.findUsuarioByCedulaUsuario(nombreUsuario);
     }
 
+    public List<Usuarios> getUsuariosByEstado(String estadoUsuario) {
+        return usuarioRepository.getUsuariosByEstado(estadoUsuario);
+    }
+
+    public List<Usuarios> getUsuariosByComuna(String comunaUsuario) {
+        return usuarioRepository.getUsuariosByComuna(comunaUsuario);
+    }
+
+    public List<Usuarios> getUsuariosByRegion(String rolUsuario) {
+        return usuarioRepository.getUsuariosByRegion(rolUsuario);
+    }
+
     public boolean deleteUsuario(Integer id) {
         try {
             usuarioRepository.deleteById(id);

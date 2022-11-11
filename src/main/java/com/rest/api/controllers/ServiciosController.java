@@ -1,43 +1,40 @@
 package com.rest.api.controllers;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import com.rest.api.models.Reserva;
 import com.rest.api.models.Servicios;
-import com.rest.api.services.ReservaServicioService;
+import com.rest.api.services.ServiciosService;
 
 @RestController
 @RequestMapping("servicio/")
 public class ServiciosController {
 
     @Autowired
-    ReservaServicioService reservaServiciosService;
+    ServiciosService serviciosService;
 
     @GetMapping("servicios")
     public List<Servicios> getServicios() {
-        return reservaServiciosService.getServicios();
+        return serviciosService.getServicios();
     }
 
-    @GetMapping("disponibles")
+    @GetMapping("disponibilidad")
     public List<Servicios> getServicioByDisponibilidad(@RequestParam String disponibilidadServicios) {
-        return reservaServiciosService.getServicioByDisponibilidad(disponibilidadServicios);
+        return serviciosService.getServicioByDisponibilidad(disponibilidadServicios);
     }
 
     @GetMapping("servicioName")
-    public List<Servicios> getServicioByNombreServivicios(@RequestParam String nombreServicios) {
-        return reservaServiciosService.findServicioByNombreServicios(nombreServicios);
+    public List<Servicios> findServicioByNombreServicios(@RequestParam String nombreServicios) {
+        return serviciosService.findServicioByNombreServicios(nombreServicios);
     }
 
     @GetMapping("serviciosGet/{id}")
-    public Reserva findById(@PathVariable("id") int id) {
-        return this.reservaServiciosService.findById(id);
+    public Servicios findById(@PathVariable("id") int id) {
+        return this.serviciosService.findById(id);
     }
 
     @PostMapping("serviciosSave")
     public Servicios saveServicios(@RequestBody Servicios servicios) {
-        return this.reservaServiciosService.saveServicios(servicios);
+        return this.serviciosService.saveServicios(servicios);
     }
 }

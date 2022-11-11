@@ -18,4 +18,7 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
     List<Reserva> findByFechaFin(Date fechaFin);
 
     List<Reserva> findByFechaCreacion(Date fechaCreacion);
+
+    @Query (value = "SELECT * FROM RESERVA WHERE ESTADO_RESERVA = ?1", nativeQuery = true)
+    List<Reserva> getReservasByEstado(String estadoReserva);
 }

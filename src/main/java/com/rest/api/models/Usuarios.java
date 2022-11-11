@@ -2,7 +2,6 @@ package com.rest.api.models;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -29,9 +28,6 @@ public class Usuarios {
     @Column(name = "telefonoUsuario")
     private int telefonoUsuario;
 
-    @Column(name = "rolUsuario")
-    private String rolUsuario;
-
     @Column(name = "regionUsuario")
     private String regionUsuario;
 
@@ -41,9 +37,16 @@ public class Usuarios {
     @Column(name = "passwordUsuario")
     private String passwordUsuario;
 
+    @Column(name = "estadoUsuario")
+    private String estadoUsuario;
+
     @ManyToMany(mappedBy = "usuarios")
     @JsonIgnore
     private Set<Reserva> usuarios = new HashSet<>();
+
+    @OneToOne
+    @JsonIgnore
+    private Rol rol;
 
     public Usuarios() {
     }
@@ -88,14 +91,6 @@ public class Usuarios {
         this.cedulaUsuario = cedulaUsuario;
     }
 
-    public String getRolUsuario() {
-        return rolUsuario;
-    }
-
-    public void setRolUsuario(String rolUsuario) {
-        this.rolUsuario = rolUsuario;
-    }
-
     public void setTelefonoUsuario(int telefonoUsuario) {
         this.telefonoUsuario = telefonoUsuario;
     }
@@ -110,6 +105,14 @@ public class Usuarios {
 
     public void setPasswordUsuario(String passwordUsuario) {
         this.passwordUsuario = passwordUsuario;
+    }
+
+    public String getEstadoUsuario() {
+        return estadoUsuario;
+    }
+
+    public void setEstadoUsuario(String estadoUsuario) {
+        this.estadoUsuario = estadoUsuario;
     }
 
     public String getRegionUsuario() {

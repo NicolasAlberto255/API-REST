@@ -26,18 +26,33 @@ public class UsuarioController {
     }
 
     @GetMapping("nombreUsuario")
-    public List<Usuarios> getUsuarioByNombreUsuario(@RequestParam String nombreUsuario) {
+    public List<Usuarios> findUsuarioByNombreUsuario(@RequestParam String nombreUsuario) {
         return usuarioService.findUsuarioByNombreUsuario(nombreUsuario);
     }
 
     @GetMapping("apellidoUsuario")
-    public List<Usuarios> getUsuarioByApellidoUsuario(@RequestParam String apellidoUsuario) {
+    public List<Usuarios> findUsuarioByApellidoUsuario(@RequestParam String apellidoUsuario) {
         return usuarioService.findUsuarioByApellidoUsuario(apellidoUsuario);
     }
 
     @GetMapping("cedulaUsuario")
-    public List<Usuarios> getUsuarioByCedulaUsuario(@RequestParam String cedulaUsuario) {
+    public List<Usuarios> findUsuarioByCedulaUsuario(@RequestParam String cedulaUsuario) {
         return usuarioService.findUsuarioByCedulaUsuario(cedulaUsuario);
+    }
+
+    @GetMapping("estadoUsuario")
+    public List<Usuarios> getUsuariosByEstado(@RequestParam String estadoUsuario) {
+        return usuarioService.getUsuariosByEstado(estadoUsuario);
+    }
+
+    @GetMapping("comunaUsuario")
+    public List<Usuarios> getUsuariosByComuna(@RequestParam String comunaUsuario){
+        return usuarioService.getUsuariosByComuna(comunaUsuario);
+    }
+
+    @GetMapping("regionUsuario")
+    public List<Usuarios> getUsuariosByRegion(@RequestParam String regionUsuario){
+        return usuarioService.getUsuariosByRegion(regionUsuario);
     }
 
     @PostMapping("usuariosSave")
@@ -56,7 +71,19 @@ public class UsuarioController {
         usuarioUpdate.setTelefonoUsuario(usuario.getTelefonoUsuario());
         usuarioUpdate.setRegionUsuario(usuario.getRegionUsuario());
         usuarioUpdate.setComunaUsuario(usuario.getComunaUsuario());
+        usuarioUpdate.setPasswordUsuario(usuario.getPasswordUsuario());
+        usuarioUpdate.setEstadoUsuario(usuario.getEstadoUsuario());
         usuarioService.saveUsuario(usuarioUpdate);
         return "Usuario actualizado";
+    }
+
+    @DeleteMapping(path = "usuariosDelete/{id}")
+    public String deleteUsuario(@PathVariable("id") int id) {
+        boolean ok = this.usuarioService.deleteUsuario(id);
+        if (ok) {
+            return "Usuario eliminado";
+        } else {
+            return "Error al eliminar usuario";
+        }
     }
 }

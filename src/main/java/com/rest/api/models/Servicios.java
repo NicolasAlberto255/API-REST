@@ -23,7 +23,7 @@ public class Servicios {
     private int precioServicios;
 
     @Column(name = "disponibilidadServicios")
-    private Boolean disponibilidadServicios;
+    private String disponibilidadServicios;
 
     @ManyToMany(mappedBy = "servicios")
     @JsonIgnore
@@ -64,11 +64,11 @@ public class Servicios {
         this.precioServicios = precioServicios;
     }
 
-    public Boolean getDisponibilidadServicios() {
+    public String getDisponibilidadServicios() {
         return disponibilidadServicios;
     }
 
-    public void setDisponibilidadServicios(Boolean disponibilidadServicios) {
+    public void setDisponibilidadServicios(String disponibilidadServicios) {
         this.disponibilidadServicios = disponibilidadServicios;
     }
 

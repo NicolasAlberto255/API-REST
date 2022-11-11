@@ -3,7 +3,6 @@ package com.rest.api.services;
 import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.rest.api.models.*;
@@ -11,7 +10,7 @@ import com.rest.api.repositories.*;
 import com.rest.api.reservaRequests.ReservaRequest;
 
 @Service
-public class ReservaServicioService {
+public class ReservaService {
     @Autowired
     ServiciosRepository serviciosRepository;
 
@@ -27,28 +26,7 @@ public class ReservaServicioService {
     @Autowired
     DepartamentosService departamentosService;
 
-    public ReservaServicioService() {
-    }
-
-    public List<Servicios> getServicios() {
-        return serviciosRepository.findAll();
-    }
-
-    public Servicios saveServicios(Servicios servicios) {
-        return serviciosRepository.save(servicios);
-    }
-
-    public List<Servicios> findServicioByNombreServicios(String nombreServicios) {
-        return serviciosRepository.findServicioByNombreServicios(nombreServicios);
-    }
-
-    public List<Servicios> getServicioByDisponibilidad(String disponibilidadServicios) {
-        return serviciosRepository.getServicioByDisponibilidad(disponibilidadServicios);
-    }
-
-    public Servicios findById(Integer id) {
-        return serviciosRepository.findById(id).get();
-    }
+    
 
     public Reserva addReservaServicios(ReservaRequest reservaRequest) {
         Reserva reserva = new Reserva();
@@ -71,7 +49,7 @@ public class ReservaServicioService {
             Departamentos departamentosContents = departamentos;
             if (departamentos.getIdDepartamentos() > 0) {
                 departamentosContents = departamentosRepository.findById(departamentos.getIdDepartamentos());
-                departamentosContents.setEstadoDepartamento("Activo");
+                departamentosContents.setEstadoDepartamento("Reservado");
             }
             departamentosContents.addReservas(reserva);
             return departamentos;
@@ -98,6 +76,10 @@ public class ReservaServicioService {
 
     public List<Reserva> findByFechaCreacion(Date fechaCreacion) {
         return reservaRepository.findByFechaCreacion(fechaCreacion);
+    }
+
+    public List<Reserva> getReservasByEstado(String estadoReserva) {
+        return reservaRepository.getReservasByEstado(estadoReserva);
     }
 
     public List<Reserva> getReserva() {

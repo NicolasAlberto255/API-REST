@@ -1,6 +1,7 @@
 package com.rest.api.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.Departamentos;
@@ -16,6 +17,11 @@ public class DepartamentosController {
     @GetMapping("departamentos")
     public ArrayList<Departamentos> getDepartamentos() {
         return departamentosService.getDepartamentos();
+    }
+
+    @GetMapping("estadoDepartamento")
+    public List<Departamentos> getDepartamentosByEstado(@RequestParam String estadoDepartamento) {
+        return departamentosService.getDepartamentosByEstado(estadoDepartamento);
     }
 
     @GetMapping("departamentosGet/{id}")
@@ -40,6 +46,7 @@ public class DepartamentosController {
         departamentosUpdate.setnHabitacion(departamentos.getnHabitacion());
         departamentosUpdate.setBalcon(departamentos.getBalcon());
         departamentosUpdate.setvNoche(departamentos.getvNoche());
+        departamentosUpdate.setEstadoDepartamento(departamentos.getEstadoDepartamento());
         departamentosService.saveDepartamentos(departamentosUpdate);
         return "Departamentos actualizados";
     }

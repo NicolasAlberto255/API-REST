@@ -11,7 +11,7 @@ public class CheckOut {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idCheckOut")
-    private int id;
+    private int idCheckOut;
 
     @DateTimeFormat(pattern = "dd-mm-yyyy")
     @Column(name = "fechaCheckOut")
@@ -30,12 +30,12 @@ public class CheckOut {
     public CheckOut() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdCheckOut() {
+        return idCheckOut;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCheckOut(int idCheckOut) {
+        this.idCheckOut = idCheckOut;
     }
 
     public Date getFechaCheckOut() {
