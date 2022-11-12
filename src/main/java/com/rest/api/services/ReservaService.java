@@ -26,8 +26,6 @@ public class ReservaService {
     @Autowired
     DepartamentosService departamentosService;
 
-    
-
     public Reserva addReservaServicios(ReservaRequest reservaRequest) {
         Reserva reserva = new Reserva();
         reserva.setIdReserva(reservaRequest.id);

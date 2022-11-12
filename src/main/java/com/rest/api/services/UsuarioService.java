@@ -2,7 +2,8 @@ package com.rest.api.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.rest.api.models.Usuarios;
+import com.rest.api.models.*;
+import com.rest.api.repositories.RolesRepository;
 import com.rest.api.repositories.UsuariosRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,9 @@ import java.util.List;
 public class UsuarioService {
     @Autowired
     UsuariosRepository usuarioRepository;
+
+    @Autowired
+    RolesRepository rolRepository;
 
     public ArrayList<Usuarios> getUsuario() {
         return (ArrayList<Usuarios>) usuarioRepository.findAll();

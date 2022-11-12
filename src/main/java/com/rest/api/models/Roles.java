@@ -3,7 +3,8 @@ package com.rest.api.models;
 import javax.persistence.*;
 
 @Entity
-public class Rol {
+@Table(name = "roles")
+public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idRol")
@@ -12,16 +13,10 @@ public class Rol {
     @Column(name = "nombreRol")
     private String nombreRol;
 
-    @OneToOne
-    @JoinTable(
-        name = "usuario", 
-        joinColumns = @JoinColumn(
-            name = "idRol"), 
-            inverseJoinColumns = @JoinColumn(
-                name = "idUsuario"))
-    private Usuarios idUsuarios;
+    @OneToOne(mappedBy = "rol")
+    private Usuarios usuarios;
 
-    public Rol() {
+    public Roles() {
     }
 
     public int getIdRol() {
@@ -39,5 +34,4 @@ public class Rol {
     public void setNombreRolUsuario(String nombreRol) {
         this.nombreRol = nombreRol;
     }
-    
 }

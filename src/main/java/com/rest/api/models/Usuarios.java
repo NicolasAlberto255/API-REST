@@ -44,9 +44,9 @@ public class Usuarios {
     @JsonIgnore
     private Set<Reserva> usuarios = new HashSet<>();
 
-    @OneToOne
-    @JsonIgnore
-    private Rol rol;
+    @OneToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
+    @JoinColumn(name = "idRol")
+    private Roles rol;
 
     public Usuarios() {
     }
@@ -141,5 +141,13 @@ public class Usuarios {
 
     public void addReservas(Reserva reserva) {
         this.usuarios.add(reserva);
+    }
+
+    public Roles getRol() {
+        return rol;
+    }
+
+    public void setRol(Roles rol) {
+        this.rol = rol;
     }
 }

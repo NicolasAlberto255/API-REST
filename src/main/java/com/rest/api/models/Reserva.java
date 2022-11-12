@@ -40,7 +40,12 @@ public class Reserva {
     private int cntPersonas;
 
     @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.ALL, CascadeType.REFRESH })
-    @JoinTable(name = "reserva_servicios", joinColumns = @JoinColumn(name = "idReserva"), inverseJoinColumns = @JoinColumn(name = "idServicios"))
+    @JoinTable(
+        name = "reserva_servicios", 
+        joinColumns = @JoinColumn(
+            name = "idReserva"), 
+            inverseJoinColumns = @JoinColumn(
+                name = "idServicios"))
     @JsonIgnore
     private Set<Servicios> servicios = new HashSet<>();
 
