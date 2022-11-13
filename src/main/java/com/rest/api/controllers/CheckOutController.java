@@ -26,10 +26,10 @@ public class CheckOutController {
     @PostMapping("checkoutSave")
     public String saveCheckOut(@RequestBody CheckOut checkOut) {
         this.checkOutService.saveCheckOut(checkOut);
-        return "CheckOut Guardado";
+        return "Check Out Guardado";
     }
 
-    @PutMapping("checkoutPut/{id}")
+    @PutMapping("checkOutUpdate/{id}")
     public String updateCheckOut(@PathVariable("id") Integer id, @RequestBody CheckOut checkOut) {
         CheckOut checkOutUpdate = checkOutService.findById(id);
         checkOutUpdate.setFechaCheckOut(checkOut.getFechaCheckOut());

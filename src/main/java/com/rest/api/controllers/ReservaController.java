@@ -41,7 +41,7 @@ public class ReservaController {
         return "Reserva Agregada";
     }
 
-    @PutMapping("reservaPut/{id}")
+    @PutMapping("reservaUpdate/{id}")
     public String updateReserva(@PathVariable("id") int id, @RequestBody Reserva reserva) {
         Reserva reservaUpdate = reservaService.findById(id);
         reservaUpdate.setFechaInicio(reserva.getFechaInicio());

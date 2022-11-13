@@ -1,5 +1,6 @@
 package com.rest.api.models;
 
+import java.util.Set;
 import javax.persistence.*;
 
 @Entity
@@ -13,8 +14,8 @@ public class Roles {
     @Column(name = "nombreRol")
     private String nombreRol;
 
-    @OneToOne(mappedBy = "rol")
-    private Usuarios usuarios;
+    @OneToMany(mappedBy = "rol", orphanRemoval = true, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST })
+    private Set<Usuarios> usuarios;
 
     public Roles() {
     }

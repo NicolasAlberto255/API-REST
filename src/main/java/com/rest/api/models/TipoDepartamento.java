@@ -3,21 +3,21 @@ package com.rest.api.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tipoInventario")
-public class TipoInventario {
+@Table(name = "tipoDepartamento")
+public class TipoDepartamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idTipoInventario")
+    @Column(name = "idTipoDepartamento")
     private Integer id;
 
     @Column(name = "nombreTipo")
     private String nombreTipo;
 
-    @OneToOne(mappedBy = "tipoInventario", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "tipoDepartamento", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private InventarioDepto inventarioDepto;
 
-    public TipoInventario() {
+    public TipoDepartamento() {
     }
 
     public Integer getId() {

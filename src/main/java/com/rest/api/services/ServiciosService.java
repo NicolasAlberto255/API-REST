@@ -27,8 +27,21 @@ public class ServiciosService {
     public List<Servicios> getServicioByDisponibilidad(String disponibilidadServicios) {
         return serviciosRepository.getServicioByDisponibilidad(disponibilidadServicios);
     }
+    
+    public Servicios updateServicios(Servicios servicios){
+        return serviciosRepository.save(servicios);
+    }
 
     public Servicios findById(Integer id) {
         return serviciosRepository.findById(id).get();
+    }
+
+    public boolean deleteServicios(Integer id) {
+        try {
+            serviciosRepository.deleteById(id);
+            return true;
+        } catch (Exception err) {
+            return false;
+        }
     }
 }

@@ -12,6 +12,7 @@ import com.rest.api.models.CheckIn;
 @Repository
 @Transactional
 public interface CheckInRepository extends JpaRepository<CheckIn, Integer> {
+    
     @Query(value = "SELECT * FROM checkIn WHERE fechaCheckIn = :fechaCheckIn", nativeQuery = true)
     CheckIn findByFechaCheckIn(@Param("fechaCheckIn") Date fechaCheckIn);
 }

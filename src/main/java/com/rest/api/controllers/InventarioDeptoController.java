@@ -29,21 +29,21 @@ public class InventarioDeptoController {
         return "Inventario Guardado";
     }
 
-    @PutMapping("inventarioDeptoPut/{id}")
+    @PutMapping("inventarioDeptoUpdate/{id}")
     public String updateInventarioDepto(@PathVariable("id") Integer id, @RequestBody InventarioDepto inventarioDepto) {
         InventarioDepto inventarioDeptoUpdate = inventarioDeptoService.findById(id);
         inventarioDeptoUpdate.setDescripcion(inventarioDepto.getDescripcion());
         inventarioDeptoService.saveInventarioDepto(inventarioDeptoUpdate);
-        return "Inventario de Departamento actualizada";
+        return "Inventario actualizada";
     }
 
     @DeleteMapping("inventarioDeptoDelete/{id}")
     public String deleteById(@PathVariable("id") Integer id) {
         boolean ok = this.inventarioDeptoService.deleteInventarioDepto(id);
         if (ok) {
-            return "Se eliminó el Inventario de Departamento con id " + id;
+            return "Se eliminó el Inventario con id " + id;
         } else {
-            return "No se pudo eliminar el Inventario de Departamento con id " + id;
+            return "No se pudo eliminar el Inventario con id " + id;
         }
     }
 }

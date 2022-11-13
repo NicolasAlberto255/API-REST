@@ -1,8 +1,6 @@
 package com.rest.api.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.Usuarios;
@@ -16,23 +14,13 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @GetMapping("usuarios")
-    public ArrayList<Usuarios> getUsuario() {
+    public List<Usuarios> getUsuario() {
         return usuarioService.getUsuario();
     }
 
     @GetMapping("usuariosGet/{id}")
     public Usuarios findById(@PathVariable("id") Integer id) {
         return this.usuarioService.findById(id);
-    }
-
-    @GetMapping("nombreUsuario")
-    public List<Usuarios> findUsuarioByNombreUsuario(@RequestParam String nombreUsuario) {
-        return usuarioService.findUsuarioByNombreUsuario(nombreUsuario);
-    }
-
-    @GetMapping("apellidoUsuario")
-    public List<Usuarios> findUsuarioByApellidoUsuario(@RequestParam String apellidoUsuario) {
-        return usuarioService.findUsuarioByApellidoUsuario(apellidoUsuario);
     }
 
     @GetMapping("cedulaUsuario")
@@ -55,13 +43,18 @@ public class UsuarioController {
         return usuarioService.getUsuariosByRegion(regionUsuario);
     }
 
+    @GetMapping("idRol")
+    public List<Usuarios> getUsuariosByIdRol(@RequestParam int idRol){
+        return usuarioService.getUsuariosByIdRol(idRol);
+    }
+
     @PostMapping("usuariosSave")
     public String saveUsuario(@RequestBody Usuarios usuario) {
         this.usuarioService.saveUsuario(usuario);
         return "Usuario Guardado";
     }
 
-    @PutMapping(path = "usuariosPut/{id}")
+    @PutMapping(path = "usuariosUpdate/{id}")
     public String updateUser(@PathVariable("id") int id, @RequestBody Usuarios usuario) {
         Usuarios usuarioUpdate = usuarioService.findById(id);
         usuarioUpdate.setNombreUsuario(usuario.getNombreUsuario());

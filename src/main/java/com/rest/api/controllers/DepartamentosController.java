@@ -35,7 +35,7 @@ public class DepartamentosController {
         return "Departamento Guardado";
     }
 
-    @PutMapping("departamentosPut/{id}")
+    @PutMapping("departamentosUpdate/{id}")
     public String updateDepartamentos(@PathVariable("id") int id, @RequestBody Departamentos departamentos) {
         Departamentos departamentosUpdate = departamentosService.findById(id);
         departamentosUpdate.setNombreDepartamento(departamentos.getNombreDepartamento());

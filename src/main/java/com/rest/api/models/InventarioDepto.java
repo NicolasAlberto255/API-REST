@@ -15,8 +15,8 @@ public class InventarioDepto {
     private String descripcion;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "idTipoInventario")
-    private TipoInventario tipoInventario;
+    @JoinColumn(name = "idTipoDepartamento")
+    private TipoDepartamento tipoDepartamento;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "idDepartamentos")
@@ -49,12 +49,12 @@ public class InventarioDepto {
         this.departamentos = departamentos;
     }
 
-    public TipoInventario getTipoInventario() {
-        return tipoInventario;
+    public TipoDepartamento getTipoDepartament() {
+        return tipoDepartamento;
     }
 
-    public void setTipoInventario(TipoInventario tipoInventario) {
-        this.tipoInventario = tipoInventario;
+    public void setTipoDepartament(TipoDepartamento tipoDepartamento) {
+        this.tipoDepartamento = tipoDepartamento;
     }
 
 }

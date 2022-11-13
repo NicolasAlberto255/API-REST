@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import com.rest.api.models.*;
 import com.rest.api.repositories.RolesRepository;
 import com.rest.api.repositories.UsuariosRepository;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,8 +15,8 @@ public class UsuarioService {
     @Autowired
     RolesRepository rolRepository;
 
-    public ArrayList<Usuarios> getUsuario() {
-        return (ArrayList<Usuarios>) usuarioRepository.findAll();
+    public List<Usuarios> getUsuario() {
+        return (List<Usuarios>) usuarioRepository.findAll();
     }
 
     public Usuarios saveUsuario(Usuarios usuario) {
@@ -26,14 +25,6 @@ public class UsuarioService {
 
     public Usuarios findById(int id) {
         return usuarioRepository.findById(id);
-    }
-
-    public List<Usuarios> findUsuarioByNombreUsuario(String nombreUsuario) {
-        return usuarioRepository.findUsuarioByNombreUsuario(nombreUsuario);
-    }
-
-    public List<Usuarios> findUsuarioByApellidoUsuario(String nombreUsuario) {
-        return usuarioRepository.findUsuarioByApellidoUsuario(nombreUsuario);
     }
 
     public List<Usuarios> findUsuarioByCedulaUsuario(String nombreUsuario) {
@@ -50,6 +41,10 @@ public class UsuarioService {
 
     public List<Usuarios> getUsuariosByRegion(String rolUsuario) {
         return usuarioRepository.getUsuariosByRegion(rolUsuario);
+    }
+
+    public List<Usuarios> getUsuariosByIdRol(int idRol) {
+        return usuarioRepository.getUsuariosByIdRol(idRol);
     }
 
     public boolean deleteUsuario(Integer id) {

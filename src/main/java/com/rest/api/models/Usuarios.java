@@ -44,7 +44,7 @@ public class Usuarios {
     @JsonIgnore
     private Set<Reserva> usuarios = new HashSet<>();
 
-    @OneToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
+    @ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
     @JoinColumn(name = "idRol")
     private Roles rol;
 

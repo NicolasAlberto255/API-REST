@@ -26,10 +26,10 @@ public class CheckInController {
     @PostMapping("checkinSave")
     public String saveCheckIn(@RequestBody CheckIn checkIn) {
         this.checkInService.saveCheckIn(checkIn);
-        return "CheckIn Guardado";
+        return "Check In Guardado";
     }
 
-    @PutMapping("checkinPut/{id}")
+    @PutMapping("checkInUpdate/{id}")
     public String updateCheckIn(@PathVariable("id") int id, @RequestBody CheckIn checkIn) {
         CheckIn checkInUpdate = checkInService.findById(id);
         checkInUpdate.setFechaCheckIn(checkIn.getFechaCheckIn());

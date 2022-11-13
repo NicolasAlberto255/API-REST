@@ -11,10 +11,6 @@ import com.rest.api.models.Usuarios;
 @Transactional
 public interface UsuariosRepository extends JpaRepository<Usuarios, Integer> {
 
-    List<Usuarios> findUsuarioByNombreUsuario(String nombreUsuario);
-
-    List<Usuarios> findUsuarioByApellidoUsuario(String apellidoUsuario);
-
     List<Usuarios> findUsuarioByCedulaUsuario(String cedulaUsuario);
 
     @Query(value = "SELECT * FROM USUARIO WHERE COMUNA_USUARIO = ?1", nativeQuery = true)
@@ -25,6 +21,9 @@ public interface UsuariosRepository extends JpaRepository<Usuarios, Integer> {
 
     @Query(value = "SELECT * FROM USUARIO WHERE ESTADO_USUARIO = ?1", nativeQuery = true)
     List<Usuarios> getUsuariosByEstado(String estadoUsuario);
+
+    @Query(value = "SELECT * FROM USUARIO WHERE ID_ROL = ?1", nativeQuery = true)
+    List<Usuarios> getUsuariosByIdRol(int rolUsuario);
 
     public Usuarios findById(int id);
 }
