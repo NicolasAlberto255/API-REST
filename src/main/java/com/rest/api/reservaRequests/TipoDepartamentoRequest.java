@@ -7,5 +7,5 @@ public class TipoDepartamentoRequest {
     
     public int id;
     public String nombreTipo;
-    public Set<TipoDepartamentoImagen> tipoDepartamentoImagen;
+    public Set<TipoDeptoImagen> tipoDepartamentoImagen;
 }

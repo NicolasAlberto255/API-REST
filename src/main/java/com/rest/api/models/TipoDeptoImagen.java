@@ -1,15 +1,10 @@
 package com.rest.api.models;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
-@Table(name = "tipoDepartamentoImagen")
-public class TipoDepartamentoImagen {
+@Table(name = "tipoDeptoImagen")
+public class TipoDeptoImagen {
     @Id
     @Column(name = "idImagen")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,17 +20,18 @@ public class TipoDepartamentoImagen {
     @Column(name = "data")
     private byte[] data;
 
-    @ManyToMany(mappedBy = "tipoDeptoImagen")
-    @JsonIgnore
-    private Set<TipoDepartamento> tipoDepartamentoImagen = new HashSet<>();
+    @ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
+    @JoinColumn(name = "idTipoDepartamento")
+    private TipoDepartamento tipoDepartamento;
 
-    public TipoDepartamentoImagen() {
+    public TipoDeptoImagen() {
     }
 
-    public TipoDepartamentoImagen(String nombre, String tipo, byte[] data) {
+    public TipoDeptoImagen(String nombre, String tipo, byte[] data, TipoDepartamento tipoDepartamento) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.data = data;
+        this.tipoDepartamento = tipoDepartamento;
     }
 
     public int getIdImagen() {
@@ -70,15 +66,11 @@ public class TipoDepartamentoImagen {
         this.data = data;
     }
 
-    public Set<TipoDepartamento> getTipoDepartamentoImagen() {
-        return tipoDepartamentoImagen;
+    public TipoDepartamento getTipoDepartamento() {
+        return tipoDepartamento;
     }
 
-    public void setIdTipoDepartamento(Set<TipoDepartamento> tipoDepartamentoImagen) {
-        this.tipoDepartamentoImagen = tipoDepartamentoImagen;
-    }
-
-    public void addTipoDepartamento(TipoDepartamento tipoDepartamentoImagen) {
-        this.tipoDepartamentoImagen.add(tipoDepartamentoImagen);
+    public void setTipoDepartamento(TipoDepartamento tipoDepartamento) {
+        this.tipoDepartamento = tipoDepartamento;
     }
 }

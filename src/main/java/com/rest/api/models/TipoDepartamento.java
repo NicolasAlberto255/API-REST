@@ -1,10 +1,7 @@
 package com.rest.api.models;
 
-import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tipoDepartamento")
@@ -21,15 +18,8 @@ public class TipoDepartamento {
     @OneToOne(mappedBy = "tipoDepartamento", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private InventarioDepto inventarioDepto;
 
-    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinTable(
-        name = "departamento_imagen",
-        joinColumns = @JoinColumn(
-            name = "idTipoDepartamento"),
-            inverseJoinColumns = @JoinColumn(
-                name = "idImagen"))
-    @JsonIgnore
-    private Set<TipoDepartamentoImagen> tipoDeptoImagen = new HashSet<>();
+    @OneToMany(mappedBy = "tipoDepartamento", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    private Set<TipoDeptoImagen> tipoDeptoImagen;
 
     public TipoDepartamento() {
     }
@@ -49,14 +39,5 @@ public class TipoDepartamento {
     public void setNombreTipo(String nombreTipo) {
         this.nombreTipo = nombreTipo;
     }
-
-    public Set<TipoDepartamentoImagen> getTipoDepartamentoImagen() {
-        return tipoDeptoImagen;
-    }
-
-    public void setTipoDepartamentoImagen(Set<TipoDepartamentoImagen> tipoDeptoImagen) {
-        this.tipoDeptoImagen = tipoDeptoImagen;
-    }
-
     
 }

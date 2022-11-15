@@ -1,24 +1,26 @@
 package com.rest.api.response;
 
 public class ResponseImagen {
-    private String name;
+    private String nombreImagen;
     private String url;
-    private String type;
+    private String tipoExtension;
     private long size;
+    private int idTipoDepto;
 
-    public ResponseImagen(String name, String url, String type, long size) {
-        this.name = name;
+    public ResponseImagen(String nombreImagen, String url, String tipoExtension, long size, int idTipoDepto) {
+        this.nombreImagen = nombreImagen;
         this.url = url;
-        this.type = type;
+        this.tipoExtension = tipoExtension;
         this.size = size;
+        this.idTipoDepto = idTipoDepto;
     }
 
-    public String getName() {
-        return name;
+    public String getNombreImagen() {
+        return nombreImagen;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombreImagen(String nombreImagen) {
+        this.nombreImagen = nombreImagen;
     }
 
     public String getUrl() {
@@ -29,12 +31,12 @@ public class ResponseImagen {
         this.url = url;
     }
 
-    public String getType() {
-        return type;
+    public String getTipoExtension() {
+        return tipoExtension;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTipoExtension(String tipoExtension) {
+        this.tipoExtension = tipoExtension;
     }
 
     public long getSize() {
@@ -43,5 +45,13 @@ public class ResponseImagen {
 
     public void setSize(long size) {
         this.size = size;
+    }
+
+    public int getIdTipoDepto() {
+        return idTipoDepto;
+    }
+
+    public void setIdTipoDepto(int idTipoDepto) {
+        this.idTipoDepto = idTipoDepto;
     }
 }
