@@ -1,18 +1,28 @@
 package com.rest.api.response;
 
 public class ResponseImagen {
+    private int idImagen;
     private String nombreImagen;
     private String url;
     private String tipoExtension;
     private long size;
     private int idTipoDepto;
 
-    public ResponseImagen(String nombreImagen, String url, String tipoExtension, long size, int idTipoDepto) {
+    public ResponseImagen(int idImagen, String nombreImagen, String url, String tipoExtension, long size, int idTipoDepto) {
+        this.idImagen = idImagen;
         this.nombreImagen = nombreImagen;
         this.url = url;
         this.tipoExtension = tipoExtension;
         this.size = size;
         this.idTipoDepto = idTipoDepto;
+    }
+
+    public int getIdImagen() {
+        return idImagen;
+    }
+
+    public void setIdImagen(int idImagen) {
+        this.idImagen = idImagen;
     }
 
     public String getNombreImagen() {

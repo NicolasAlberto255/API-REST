@@ -27,11 +27,12 @@ public class TipoDeptoImagenController {
         List<ResponseImagen> imagenes = tipoDeptoImagenService.getAllFiles().map(imagenFile -> {
             String imagenDownloadUri = ServletUriComponentsBuilder
                 .fromCurrentContextPath()
-                .path("tipoDepartamentoImagen/downloadImagen/")
+                .path("tipoDeptoImagen/downloadImagen/")
                 .path(imagenFile.getNombre())
                 .toUriString();
 
             return new ResponseImagen(
+                imagenFile.getIdImagen(),
                 imagenFile.getNombre(), 
                 imagenDownloadUri, 
                 imagenFile.getTipo(), 
