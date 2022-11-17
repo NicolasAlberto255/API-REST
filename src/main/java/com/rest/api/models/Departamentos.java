@@ -51,6 +51,9 @@ public class Departamentos {
     @OneToOne(mappedBy = "departamentos", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private InventarioDepto inventarioDepto;
 
+    @OneToMany(mappedBy = "departamentos", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    private Set<DeptoImagen> departamentosImagen;
+
     public Departamentos() {
     }
 

@@ -1,6 +1,6 @@
 package com.rest.api.response;
 
-public class ResponseImagen {
+public class ResponseTipoDeptoImagen {
     private int idImagen;
     private String nombreImagen;
     private String url;
@@ -8,7 +8,7 @@ public class ResponseImagen {
     private long size;
     private int idTipoDepto;
 
-    public ResponseImagen(int idImagen, String nombreImagen, String url, String tipoExtension, long size, int idTipoDepto) {
+    public ResponseTipoDeptoImagen(int idImagen, String nombreImagen, String url, String tipoExtension, long size, int idTipoDepto) {
         this.idImagen = idImagen;
         this.nombreImagen = nombreImagen;
         this.url = url;
