@@ -1,6 +1,7 @@
 package com.rest.api.models;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "inventarioDepto")
@@ -9,7 +10,7 @@ public class InventarioDepto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idInventarioDepto")
-    private int id;
+    private int idInventarioDepto;
 
     @Column(name = "descripcion")
     private String descripcion;
@@ -22,15 +23,18 @@ public class InventarioDepto {
     @JoinColumn(name = "idDepartamentos")
     private Departamentos departamentos;
 
+    @OneToMany(mappedBy = "inventarioDepto", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
+    private Set<InvDeptoImagen> invDeptoImagen;
+
     public InventarioDepto() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdInventarioDepto() {
+        return idInventarioDepto;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdInventarioDepto(int idInventarioDepto) {
+        this.idInventarioDepto = idInventarioDepto;
     }
 
     public String getDescripcion() {
