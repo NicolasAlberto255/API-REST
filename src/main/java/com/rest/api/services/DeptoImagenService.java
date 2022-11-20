@@ -1,6 +1,7 @@
 package com.rest.api.services;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 import org.springframework.util.StringUtils;
@@ -38,5 +39,13 @@ public class DeptoImagenService {
 
     public DeptoImagen getImagenByNombre(String nombreImagen) {
         return deptoImagenRepository.findByNombre(nombreImagen).get();
+    }
+
+    public List<DeptoImagen> getImagenesByIdDepartamento(int idDepartamento) {
+        return deptoImagenRepository.getImagenesByIdDepartamento(idDepartamento);
+    }
+
+    public void deleteImagenByNombre(String nombreImagen) {
+        deptoImagenRepository.deleteImagenByNombre(nombreImagen);
     }
 }

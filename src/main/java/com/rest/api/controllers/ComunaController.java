@@ -1,7 +1,7 @@
 package com.rest.api.controllers;
 
 import com.rest.api.repositories.ComunaRepository;
-import com.rest.api.services.RegionComunaProvinciaService;
+import com.rest.api.services.RegionComunaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.*;
@@ -12,7 +12,7 @@ import java.util.List;
 public class ComunaController {
 
     @Autowired
-    RegionComunaProvinciaService regionComunaProvinciaService;
+    RegionComunaService regionComunaProvinciaService;
 
     @Autowired
     ComunaRepository comunaRepository;
@@ -33,7 +33,7 @@ public class ComunaController {
     }
 
     @GetMapping("comunasByRegionId")
-    public List<Comuna> getcomunasByRegionId(@RequestParam Integer id) {
+    public List<Comuna> getcomunasByRegionId(@RequestParam int id) {
         return regionComunaProvinciaService.getComunasByIdRegion(id);
     }
 }

@@ -5,15 +5,14 @@ import org.springframework.stereotype.Service;
 import com.rest.api.models.Departamentos;
 import com.rest.api.repositories.DepartamentosRepository;
 import java.util.List;
-import java.util.ArrayList;
 
 @Service
 public class DepartamentosService {
     @Autowired
     DepartamentosRepository departamentosRepository;
 
-    public ArrayList<Departamentos> getDepartamentos() {
-        return (ArrayList<Departamentos>) departamentosRepository.findAll();
+    public List<Departamentos> getDepartamentos() {
+        return (List<Departamentos>) departamentosRepository.findAll();
     }
 
     public Departamentos saveDepartamentos(Departamentos departamentos) {

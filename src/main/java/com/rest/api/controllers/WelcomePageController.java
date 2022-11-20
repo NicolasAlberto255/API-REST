@@ -26,6 +26,18 @@ public class WelcomePageController {
                 "Estado de Disponibilidad de Departamentos: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/estadoDepartamento?estadoDepartamento={estado} \n <br> \n <br>" +
 
+                "Imagenes Departamentos Endpoint \n <br>" +
+                "Obtener todas las Imagenes: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/deptoImagen/imagenList \n <br>" +
+                "Obtener una Imagen por ID Departamento: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/deptoImagen/imagenesByIdDepto/{idDepartamento} \n <br>" +
+                "Descargar o Mostrar Imagen por nombre de Imagen: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/deptoImagen/downloadFile/{nombreImagen} \n <br>" +
+                "Guardar una Imagen: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/deptoImagen/imagenUpload \n <br>" +
+                "Eliminar una Imagen: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/deptoImagen/imagenDelete/{nombreImagen} \n <br> \n <br>" +
+
                 "Servicios Endpoint \n <br>" +
                 "Obtener todos los Servicios: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicio/servicios \n <br>" +
@@ -39,6 +51,18 @@ public class WelcomePageController {
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicio/actualizarServicios/{id} \n <br>" +
                 "Estado de Servicios: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicio/disponibilidad?disponibilidadServicios={disponibilidadServicios} \n <br> \n <br>" +
+
+                "Imagenes Servicios Endpoint \n <br>" +
+                "Obtener todas las Imagenes: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicioImagen/imagenList \n <br>" +
+                "Obtener una Imagen por ID Servicio: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicioImagen/imagenesByIdServicio/{idServicio} \n <br>" +
+                "Descargar o Mostrar Imagen por nombre de Imagen: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicioImagen/downloadFile/{nombreImagen} \n <br>" +
+                "Guardar una Imagen: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicioImagen/imagenUpload \n <br>" +
+                "Eliminar una Imagen: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/servicioImagen/imagenDelete/{nombreImagen} \n <br> \n <br>" +
 
                 "Regiones Endpoint \n <br>" +
                 "Obtener todas las Regiones: " +
@@ -80,6 +104,16 @@ public class WelcomePageController {
                 "Estado de Usuarios: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/estadoUsuario?estadoUsuario={estadoUsuario} \n <br> \n <br>" +
 
+                "Roles Endpoint \n <br>" +
+                "Obtener todos los Roles: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/rol/roles \n <br>" +
+                "Obtener los Roles por ID: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/rol/{id} \n <br>" +
+                "Guardar Rol: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/rol/rolSave \n <br>" +
+                "Actualizar Rol por ID: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/rol/rolUpdate/{id} \n <br>" +
+
                 "Tipo Inventario Endpoint \n <br>" +
                 "Obtener todos los Tipos de Departamento: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/tipoInventario/tipoDepartamentos \n <br>"+
@@ -118,6 +152,18 @@ public class WelcomePageController {
                 "Eliminar Inventario Departamento por ID: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/inventarioDepto/inventarioDeptoDelete/{id} \n <br> \n  <br>"+
 
+                "Reportes Endpoint \n <br>" +
+                "Obtener todos los Reportes: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/listReportes \n <br>"+
+                "Obtener los Reportes por ID: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/{id} \n <br>"+
+                "Guardar Reporte: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/reporteSave \n <br>"+
+                "Actualizar Reporte: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/reporteUpdate/{id} \n <br>"+
+                "Eliminar Reporte por ID: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/reporteDelete/{id} \n <br> \n <br>"+
+
                 "Check In Endpoint \n <br>" +
                 "Obtener todos los Check In: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkin/checkins \n <br>" +
@@ -126,7 +172,9 @@ public class WelcomePageController {
                 "Guardar Check In: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkin/checkinSave \n <br>" +
                 "Actualizar Check In por ID: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkin/checkInUpdate/{id} \n <br> \n <br>"+
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkin/checkInUpdate/{id} \n <br>" +
+                "Eliminar Check In por ID: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkin/checkInDelete/{id} \n <br> \n <br>"+
 
                 "Check Out Endpoint \n <br>" +
                 "Obtener todos los Check Out: " +
@@ -136,6 +184,8 @@ public class WelcomePageController {
                 "Guardar Check Out: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkout/checkoutSave \n <br>" +
                 "Actualizar Check Out por ID: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkout/checkOutUpdate/{id} \n <br> \n <br>";
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkout/checkOutUpdate/{id} \n <br>" +
+                "Eliminar Check Out por ID: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkout/checkOutDelete/{id} \n <br> \n <br>";
     }
 }

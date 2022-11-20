@@ -47,8 +47,8 @@ public class Departamentos {
     @JsonIgnore
     private Set<Reserva> departamentos = new HashSet<>();
 
-    @OneToOne(mappedBy = "departamentos", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private InventarioDepto inventarioDepto;
+    @OneToMany(mappedBy = "departamentos", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    private Set<InventarioDepto> inventarioDepto;
 
     @OneToMany(mappedBy = "departamentos", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     private Set<DeptoImagen> departamentosImagen;

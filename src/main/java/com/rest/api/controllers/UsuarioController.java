@@ -19,7 +19,7 @@ public class UsuarioController {
     }
 
     @GetMapping("usuariosGet/{id}")
-    public Usuarios findById(@PathVariable("id") Integer id) {
+    public Usuarios findById(@PathVariable("id") int id) {
         return this.usuarioService.findById(id);
     }
 

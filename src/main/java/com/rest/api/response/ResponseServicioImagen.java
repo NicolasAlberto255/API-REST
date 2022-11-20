@@ -1,20 +1,20 @@
 package com.rest.api.response;
 
-public class ResponseInvDeptoImagen {
+public class ResponseServicioImagen {
     private int idImagen;
     private String nombreImagen;
     private String url;
     private String tipoExtension;
     private long size;
-    private int idInventarioDepto;
+    private int idServicio;
 
-    public ResponseInvDeptoImagen(int idImagen, String nombreImagen, String url, String tipoExtension, long size, int idInventarioDepto) {
+    public ResponseServicioImagen(int idImagen, String nombreImagen, String url, String tipoExtension, long size, int idServicio) {
         this.idImagen = idImagen;
         this.nombreImagen = nombreImagen;
         this.url = url;
         this.tipoExtension = tipoExtension;
         this.size = size;
-        this.idInventarioDepto = idInventarioDepto;
+        this.idServicio = idServicio;
     }
 
     public int getIdImagen() {
@@ -57,11 +57,11 @@ public class ResponseInvDeptoImagen {
         this.size = size;
     }
 
-    public int getIdInventarioDepto() {
-        return idInventarioDepto;
+    public int getIdServicio() {
+        return idServicio;
     }
 
-    public void setIdInventarioDepto(int idInventarioDepto) {
-        this.idInventarioDepto = idInventarioDepto;
+    public void setIdServicio(int idServicio) {
+        this.idServicio = idServicio;
     }
 }

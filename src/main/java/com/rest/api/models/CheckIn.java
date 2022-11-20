@@ -3,8 +3,6 @@ package com.rest.api.models;
 import java.sql.Date;
 import javax.persistence.*;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 @Table(name = "checkIn")
 public class CheckIn {
@@ -13,15 +11,17 @@ public class CheckIn {
     @Column(name = "idCheckIn")
     private int idCheckIn;
 
-    @DateTimeFormat(pattern = "dd-mm-yyyy")
     @Column(name = "fechaCheckIn")
     private Date fechaCheckIn;
 
     @Column(name = "montoFinalReserva")
-    private Integer montoFinalReserva;
+    private int montoFinalReserva;
 
     @Column(name = "Anotaciones")
     private String anotaciones;
+
+    @Column(name = "nombreCliente")
+    private String nombreCliente;
 
     @OneToOne(mappedBy = "checkIn")
     private CheckOut checkOut;
@@ -45,11 +45,11 @@ public class CheckIn {
         this.fechaCheckIn = fechaCheckIn;
     }
 
-    public Integer getMontoFinalReserva() {
+    public int getMontoFinalReserva() {
         return montoFinalReserva;
     }
 
-    public void setMontoFinalReserva(Integer montoFinalReserva) {
+    public void setMontoFinalReserva(int montoFinalReserva) {
         this.montoFinalReserva = montoFinalReserva;
     }
 
@@ -59,5 +59,13 @@ public class CheckIn {
 
     public void setAnotaciones(String anotaciones) {
         this.anotaciones = anotaciones;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 }

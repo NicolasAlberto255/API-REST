@@ -101,7 +101,7 @@ public class ReservaService {
         return reservaRepository.save(reserva);
     }
 
-    public boolean deleteReserva(Integer id) {
+    public boolean deleteReserva(int id) {
         try {
             reservaRepository.deleteById(id);
             return true;

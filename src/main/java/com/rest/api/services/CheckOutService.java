@@ -4,15 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.rest.api.models.CheckOut;
 import com.rest.api.repositories.CheckOutRepository;
-import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CheckOutService {
     @Autowired
     CheckOutRepository checkOutRepository;
 
-    public ArrayList<CheckOut> getCheckOut() {
-        return (ArrayList<CheckOut>) checkOutRepository.findAll();
+    public List<CheckOut> getCheckOut() {
+        return (List<CheckOut>) checkOutRepository.findAll();
     }
 
     public CheckOut saveCheckOut(CheckOut checkOut) {
@@ -21,5 +21,14 @@ public class CheckOutService {
 
     public CheckOut findById(int id) {
         return checkOutRepository.findById(id).get();
+    }
+
+    public boolean deleteCheckOut(int id) {
+        try {
+            checkOutRepository.deleteById(id);
+            return true;
+        } catch (Exception err) {
+            return false;
+        }
     }
 }

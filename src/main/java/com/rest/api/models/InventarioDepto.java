@@ -1,7 +1,6 @@
 package com.rest.api.models;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "inventarioDepto")
@@ -15,16 +14,13 @@ public class InventarioDepto {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
     @JoinColumn(name = "idTipoDepartamento")
     private TipoDepartamento tipoDepartamento;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
     @JoinColumn(name = "idDepartamentos")
     private Departamentos departamentos;
-
-    @OneToMany(mappedBy = "inventarioDepto", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
-    private Set<InvDeptoImagen> invDeptoImagen;
 
     public InventarioDepto() {
     }
@@ -53,7 +49,7 @@ public class InventarioDepto {
         this.departamentos = departamentos;
     }
 
-    public TipoDepartamento getTipoDepartament() {
+    public TipoDepartamento getTipoDepartamento() {
         return tipoDepartamento;
     }
 

@@ -47,7 +47,7 @@ public class UsuarioService {
         return usuarioRepository.getUsuariosByIdRol(idRol);
     }
 
-    public boolean deleteUsuario(Integer id) {
+    public boolean deleteUsuario(int id) {
         try {
             usuarioRepository.deleteById(id);
             return true;

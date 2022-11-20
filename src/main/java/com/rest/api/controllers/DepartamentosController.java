@@ -1,6 +1,5 @@
 package com.rest.api.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,7 @@ public class DepartamentosController {
     DepartamentosService departamentosService;
 
     @GetMapping("departamentos")
-    public ArrayList<Departamentos> getDepartamentos() {
+    public List<Departamentos> getDepartamentos() {
         return departamentosService.getDepartamentos();
     }
 

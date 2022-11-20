@@ -1,6 +1,6 @@
 package com.rest.api.controllers;
 
-import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.InventarioDepto;
@@ -14,12 +14,12 @@ public class InventarioDeptoController {
     InventarioDeptoService inventarioDeptoService;
 
     @GetMapping("inventarioDeptos")
-    public ArrayList<InventarioDepto> getInventarioDepto() {
+    public List<InventarioDepto> getInventarioDepto() {
         return inventarioDeptoService.getInventarioDepto();
     }
 
     @GetMapping("inventarioDeptoGet/{id}")
-    public InventarioDepto findById(@PathVariable("id") Integer id) {
+    public InventarioDepto findById(@PathVariable("id") int id) {
         return this.inventarioDeptoService.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class InventarioDeptoController {
     }
 
     @PutMapping("inventarioDeptoUpdate/{id}")
-    public String updateInventarioDepto(@PathVariable("id") Integer id, @RequestBody InventarioDepto inventarioDepto) {
+    public String updateInventarioDepto(@PathVariable("id") int id, @RequestBody InventarioDepto inventarioDepto) {
         InventarioDepto inventarioDeptoUpdate = inventarioDeptoService.findById(id);
         inventarioDeptoUpdate.setDescripcion(inventarioDepto.getDescripcion());
         inventarioDeptoService.saveInventarioDepto(inventarioDeptoUpdate);
@@ -38,7 +38,7 @@ public class InventarioDeptoController {
     }
 
     @DeleteMapping("inventarioDeptoDelete/{id}")
-    public String deleteById(@PathVariable("id") Integer id) {
+    public String deleteById(@PathVariable("id") int id) {
         boolean ok = this.inventarioDeptoService.deleteInventarioDepto(id);
         if (ok) {
             return "Se eliminó el Inventario con id " + id;

@@ -32,11 +32,11 @@ public class ServiciosService {
         return serviciosRepository.save(servicios);
     }
 
-    public Servicios findById(Integer id) {
-        return serviciosRepository.findById(id).get();
+    public Servicios findById(int id) {
+        return serviciosRepository.findById(id);
     }
 
-    public boolean deleteServicios(Integer id) {
+    public boolean deleteServicios(int id) {
         try {
             serviciosRepository.deleteById(id);
             return true;

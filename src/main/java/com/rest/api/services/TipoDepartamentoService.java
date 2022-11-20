@@ -19,11 +19,11 @@ public class TipoDepartamentoService {
         return tipoDepartamentoRepository.save(tipoInventario);
     }
 
-    public TipoDepartamento findById(Integer id) {
+    public TipoDepartamento findById(int id) {
         return tipoDepartamentoRepository.findById(id).get();
     }
 
-    public boolean deleteTipoDepartamento(Integer id) {
+    public boolean deleteTipoDepartamento(int id) {
         try {
             tipoDepartamentoRepository.deleteById(id);
             return true;

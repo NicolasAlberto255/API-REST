@@ -1,6 +1,6 @@
 package com.rest.api.controllers;
 
-import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.CheckIn;
@@ -14,7 +14,7 @@ public class CheckInController {
     CheckInService checkInService;
 
     @GetMapping("checkins")
-    public ArrayList<CheckIn> getCheckIn() {
+    public List<CheckIn> getCheckIn() {
         return checkInService.getCheckIn();
     }
 
@@ -36,5 +36,15 @@ public class CheckInController {
         checkInUpdate.setAnotaciones(checkIn.getAnotaciones());
         checkInService.saveCheckIn(checkInUpdate);
         return "Check In actualizado";
+    }
+
+    @DeleteMapping("checkInDelete/{id}")
+    public String deleteCheckIn(@PathVariable("id") int id) {
+        boolean ok = this.checkInService.deleteCheckIn(id);
+        if (ok) {
+            return "Check In eliminado";
+        } else {
+            return "Error al eliminar Check In";
+        }
     }
 }

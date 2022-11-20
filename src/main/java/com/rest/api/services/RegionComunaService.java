@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RegionComunaProvinciaService {
+public class RegionComunaService {
 
     @Autowired
     RegionRepository regionRepository;
@@ -16,7 +16,7 @@ public class RegionComunaProvinciaService {
     @Autowired
     ComunaRepository comunaRepository;
 
-    public RegionComunaProvinciaService() {
+    public RegionComunaService() {
     }
 
     public List<Region> getRegiones() {
@@ -35,7 +35,7 @@ public class RegionComunaProvinciaService {
         return comunaRepository.findById(id);
     }
 
-    public List<Comuna> getComunasByIdRegion(Integer id) {
+    public List<Comuna> getComunasByIdRegion(int id) {
         return comunaRepository.getComunasByIdRegion(id);
     }
 

@@ -15,11 +15,8 @@ public class TipoDepartamento {
     @Column(name = "nombreTipo")
     private String nombreTipo;
 
-    @OneToOne(mappedBy = "tipoDepartamento", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-    private InventarioDepto inventarioDepto;
-
     @OneToMany(mappedBy = "tipoDepartamento", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    private Set<TipoDeptoImagen> tipoDeptoImagen;
+    private Set<InventarioDepto> inventarioDepto;
 
     public TipoDepartamento() {
     }
@@ -39,5 +36,4 @@ public class TipoDepartamento {
     public void setNombreTipo(String nombreTipo) {
         this.nombreTipo = nombreTipo;
     }
-    
 }

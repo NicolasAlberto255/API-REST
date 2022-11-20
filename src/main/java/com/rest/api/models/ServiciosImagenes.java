@@ -3,11 +3,12 @@ package com.rest.api.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tipoDeptoImagen")
-public class TipoDeptoImagen {
+@Table(name = "serviciosImagenes")
+public class ServiciosImagenes {
+
     @Id
-    @Column(name = "idImagen")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idImagen")
     private int idImagen;
 
     @Column(name = "nombre")
@@ -21,17 +22,17 @@ public class TipoDeptoImagen {
     private byte[] data;
 
     @ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
-    @JoinColumn(name = "idTipoDepartamento")
-    private TipoDepartamento tipoDepartamento;
+    @JoinColumn(name = "idServicio")
+    private Servicios servicios;
 
-    public TipoDeptoImagen() {
+    public ServiciosImagenes() {
     }
 
-    public TipoDeptoImagen(String nombre, String tipo, byte[] data, TipoDepartamento tipoDepartamento) {
+    public ServiciosImagenes(String nombre, String tipo, byte[] data, Servicios servicios) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.data = data;
-        this.tipoDepartamento = tipoDepartamento;
+        this.servicios = servicios;
     }
 
     public int getIdImagen() {
@@ -66,11 +67,11 @@ public class TipoDeptoImagen {
         this.data = data;
     }
 
-    public TipoDepartamento getTipoDepartamento() {
-        return tipoDepartamento;
+    public Servicios getServicios() {
+        return servicios;
     }
 
-    public void setTipoDepartamento(TipoDepartamento tipoDepartamento) {
-        this.tipoDepartamento = tipoDepartamento;
+    public void setServicios(Servicios servicios) {
+        this.servicios = servicios;
     }
 }

@@ -23,13 +23,4 @@ public class RolesService {
     public Roles saveRol(Roles rol) {
         return rolesRepository.save(rol);
     }
-
-    public boolean deleteRol(int id) {
-        try {
-            rolesRepository.deleteById(id);
-            return true;
-        } catch (Exception err) {
-            return false;
-        }
-    }
 }

@@ -13,27 +13,22 @@ public class RolesController {
     @Autowired 
     RolesService rolesService;
 
-    @GetMapping("getRol")
+    @GetMapping("roles")
     public List<Roles> getRol() {
         return rolesService.getRol();
     }
-    @GetMapping("rolGet/{id}")
+    @GetMapping("{id}")
     public Roles findById(@PathVariable("id") int id) {
         return this.rolesService.findById(id);
     }
 
-    @PostMapping("rolPost")
+    @PostMapping("rolSave")
     public Roles saveRol(@RequestBody Roles rol) {
         return this.rolesService.saveRol(rol);
     }
 
-    @PostMapping("updateRol")
+    @PostMapping("rolUpdate/{id}")
     public Roles updateRol(@RequestBody Roles rol) {
         return this.rolesService.saveRol(rol);
-    }
-
-    @DeleteMapping("deleteRol/{id}")
-    public boolean deleteRol(@PathVariable("id") int id) {
-        return this.rolesService.deleteRol(id);
     }
 }

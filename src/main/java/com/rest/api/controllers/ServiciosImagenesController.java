@@ -10,34 +10,33 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import com.rest.api.models.Departamentos;
-import com.rest.api.response.ResponseDeptoImagen;
+import com.rest.api.models.Servicios;
+import com.rest.api.response.ResponseServicioImagen;
 import com.rest.api.response.ResponseMessage;
-import com.rest.api.services.DeptoImagenService;
+import com.rest.api.services.ServicioImagenService;
 
-@Controller 
-@RequestMapping("deptoImagen/")
-public class DeptoImagenController {
-
+@Controller
+@RequestMapping("serviciosImagen/")
+public class ServiciosImagenesController {
     @Autowired
-    private DeptoImagenService deptoImagenService;
+    private ServicioImagenService servicioImagenService;
 
     @GetMapping("imagenList") 
-    public ResponseEntity<List<ResponseDeptoImagen>> getImagenList(){
-        List<ResponseDeptoImagen> imagenes = deptoImagenService.getAllFiles().map(imagenFile -> {
+    public ResponseEntity<List<ResponseServicioImagen>> getImagenList(){
+        List<ResponseServicioImagen> imagenes = servicioImagenService.getAllFiles().map(imagenFile -> {
             String imagenDownloadUri = ServletUriComponentsBuilder
                 .fromCurrentContextPath()
-                .path("deptoImagen/downloadImagen/")
+                .path("servicioImagen/downloadImagen/")
                 .path(imagenFile.getNombre())
                 .toUriString();
 
-            return new ResponseDeptoImagen(
+            return new ResponseServicioImagen(
                 imagenFile.getIdImagen(),
                 imagenFile.getNombre(), 
                 imagenDownloadUri, 
                 imagenFile.getTipo(), 
                 imagenFile.getData().length,
-                imagenFile.getDepartamentos().getIdDepartamentos());
+                imagenFile.getServicios().getIdServicios());
         }).collect(Collectors.toList());
 
         return ResponseEntity.status(HttpStatus.OK).body(imagenes);
@@ -45,39 +44,39 @@ public class DeptoImagenController {
 
     @GetMapping("downloadImagen/{nombreImagen}")
     public ResponseEntity<?> downloadImagen(@PathVariable String nombreImagen) {
-        byte[] imagenData = deptoImagenService.downloadImagen(nombreImagen);
+        byte[] imagenData = servicioImagenService.downloadImagen(nombreImagen);
         return ResponseEntity.status(HttpStatus.OK)
                         .contentType(MediaType.valueOf("image/png"))
                         .body(imagenData);
     }
 
-    @GetMapping("imagenesByIdDepto/{idDepartamento}")
-    public ResponseEntity<List<ResponseDeptoImagen>> getImagenesByIdDepartamento(@PathVariable int idDepartamento){
-        List<ResponseDeptoImagen> imagenes = deptoImagenService.getImagenesByIdDepartamento(idDepartamento).stream().map(imagenFile -> {
+    @GetMapping("imagenesByIdServicio/{idServicio}")
+    public ResponseEntity<List<ResponseServicioImagen>> getImagenesByIdDepartamento(@PathVariable int idDepartamento){
+        List<ResponseServicioImagen> imagenes = servicioImagenService.getImagenesByIdDepartamento(idDepartamento).stream().map(imagenFile -> {
             String imagenDownloadUri = ServletUriComponentsBuilder
                 .fromCurrentContextPath()
-                .path("deptoImagen/downloadImagen/")
+                .path("servicioImagen/downloadImagen/")
                 .path(imagenFile.getNombre())
                 .toUriString();
 
-            return new ResponseDeptoImagen(
+            return new ResponseServicioImagen(
                 imagenFile.getIdImagen(),
                 imagenFile.getNombre(), 
                 imagenDownloadUri, 
                 imagenFile.getTipo(), 
                 imagenFile.getData().length,
-                imagenFile.getDepartamentos().getIdDepartamentos());
+                imagenFile.getServicios().getIdServicios());
         }).collect(Collectors.toList());
 
         return ResponseEntity.status(HttpStatus.OK).body(imagenes);
     }
 
     @PostMapping("imagenUpload")
-    public ResponseEntity<ResponseMessage> uploadImagen(@RequestParam("imagen") MultipartFile imagen, @RequestParam("idDepartamentos") Departamentos idDepartamentos) {
+    public ResponseEntity<ResponseMessage> uploadImagen(@RequestParam("imagen") MultipartFile imagen, @RequestParam("idServicios") Servicios idServicios) {
         String message = "";
         
         try { 
-            deptoImagenService.uploadImagen(imagen, idDepartamentos);
+            servicioImagenService.uploadImagen(imagen, idServicios);
             
             message = "Imagen subida correctamente: " + imagen.getOriginalFilename();
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message)); 
@@ -92,7 +91,7 @@ public class DeptoImagenController {
         String message = "";
         
         try { 
-            deptoImagenService.deleteImagenByNombre(nombreImagen);
+            servicioImagenService.deleteImagenByNombre(nombreImagen);
             
             message = "Imagen eliminada correctamente";
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message)); 

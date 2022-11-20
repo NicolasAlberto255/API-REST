@@ -1,7 +1,7 @@
 package com.rest.api.controllers;
 
 import com.rest.api.repositories.RegionRepository;
-import com.rest.api.services.RegionComunaProvinciaService;
+import com.rest.api.services.RegionComunaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.*;
@@ -12,7 +12,7 @@ import java.util.List;
 public class RegionController {
 
     @Autowired
-    RegionComunaProvinciaService regionComunaProvinciaService;
+    RegionComunaService regionComunaProvinciaService;
 
     @Autowired
     RegionRepository regionRepository;

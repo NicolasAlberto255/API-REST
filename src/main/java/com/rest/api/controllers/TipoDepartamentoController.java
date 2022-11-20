@@ -19,7 +19,7 @@ public class TipoDepartamentoController {
     }
 
     @GetMapping("tipoDepartamentoGet/{id}")
-    public TipoDepartamento findById(@PathVariable("id") Integer id) {
+    public TipoDepartamento findById(@PathVariable("id") int id) {
         return this.tipoDepartamentoService.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class TipoDepartamentoController {
     }
 
     @PutMapping("tipoDepartamentoUpdate/{id}")
-    public String updateTipoDepartamento(@PathVariable("id") Integer id, @RequestBody TipoDepartamento tipoDepartamento) {
+    public String updateTipoDepartamento(@PathVariable("id") int id, @RequestBody TipoDepartamento tipoDepartamento) {
         TipoDepartamento tipoDepartamentoUpdate = tipoDepartamentoService.findById(id);
         tipoDepartamentoUpdate.setNombreTipo(tipoDepartamento.getNombreTipo());
         tipoDepartamentoService.saveTipoDepartamento(tipoDepartamentoUpdate);
@@ -38,7 +38,7 @@ public class TipoDepartamentoController {
     }
 
     @DeleteMapping("tipoDepartamentoDelete/{id}")
-    public String deleteById(@PathVariable("id") Integer id) {
+    public String deleteById(@PathVariable("id") int id) {
         boolean ok = this.tipoDepartamentoService.deleteTipoDepartamento(id);
         if (ok) {
             return "Se eliminó el Tipo de Departamento con id " + id;

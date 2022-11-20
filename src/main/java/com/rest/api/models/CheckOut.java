@@ -3,8 +3,6 @@ package com.rest.api.models;
 import java.sql.Date;
 import javax.persistence.*;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 @Table(name = "checkOut")
 public class CheckOut {
@@ -13,7 +11,6 @@ public class CheckOut {
     @Column(name = "idCheckOut")
     private int idCheckOut;
 
-    @DateTimeFormat(pattern = "dd-mm-yyyy")
     @Column(name = "fechaCheckOut")
     private Date fechaCheckOut;
 
@@ -21,7 +18,7 @@ public class CheckOut {
     private String estadoDepartamento;
 
     @Column(name = "pagoCostoReparaciones")
-    private Integer pagoCostoReparaciones;
+    private int pagoCostoReparaciones;
 
     @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "idCheckIn")
@@ -54,11 +51,11 @@ public class CheckOut {
         this.estadoDepartamento = estadoDepartamento;
     }
 
-    public Integer getPagoCostoReparaciones() {
+    public int getPagoCostoReparaciones() {
         return pagoCostoReparaciones;
     }
 
-    public void setPagoCostoReparaciones(Integer pagoCostoReparaciones) {
+    public void setPagoCostoReparaciones(int pagoCostoReparaciones) {
         this.pagoCostoReparaciones = pagoCostoReparaciones;
     }
 
