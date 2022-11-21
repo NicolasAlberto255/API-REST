@@ -1,5 +1,8 @@
 package com.rest.api.controllers;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,14 +46,6 @@ public class DeptoImagenController {
         return ResponseEntity.status(HttpStatus.OK).body(imagenes);
     }
 
-    @GetMapping("downloadImagen/{nombreImagen}")
-    public ResponseEntity<?> downloadImagen(@PathVariable String nombreImagen) {
-        byte[] imagenData = deptoImagenService.downloadImagen(nombreImagen);
-        return ResponseEntity.status(HttpStatus.OK)
-                        .contentType(MediaType.valueOf("image/png"))
-                        .body(imagenData);
-    }
-
     @GetMapping("imagenesByIdDepto/{idDepartamento}")
     public ResponseEntity<List<ResponseDeptoImagen>> getImagenesByIdDepartamento(@PathVariable int idDepartamento){
         List<ResponseDeptoImagen> imagenes = deptoImagenService.getImagenesByIdDepartamento(idDepartamento).stream().map(imagenFile -> {
@@ -72,17 +67,36 @@ public class DeptoImagenController {
         return ResponseEntity.status(HttpStatus.OK).body(imagenes);
     }
 
-    @PostMapping("imagenUpload")
-    public ResponseEntity<ResponseMessage> uploadImagen(@RequestParam("imagen") MultipartFile imagen, @RequestParam("idDepartamentos") Departamentos idDepartamentos) {
+    @GetMapping("downloadImagen/{nombreImagen}")
+    public ResponseEntity<?> downloadImagen(@PathVariable String nombreImagen) {
+        byte[] imagenData = deptoImagenService.downloadImagen(nombreImagen);
+        return ResponseEntity.status(HttpStatus.OK)
+                        .contentType(MediaType.valueOf("image/png"))
+                        .body(imagenData);
+    }
+
+    @PostMapping("imagenesUpload")
+    public ResponseEntity<ResponseMessage> uploadImagen(@RequestParam("imagen") MultipartFile[] imagenes, @RequestParam("idDepartamentos") Departamentos idDepartamentos) {
         String message = "";
         
         try { 
-            deptoImagenService.uploadImagen(imagen, idDepartamentos);
             
-            message = "Imagen subida correctamente: " + imagen.getOriginalFilename();
+            List<String> fileNames = new ArrayList<>();
+
+            Arrays.asList(imagenes).stream().forEach(imagen -> {
+                try {
+                    deptoImagenService.uploadImagenes(imagen, idDepartamentos);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                fileNames.add(imagen.getOriginalFilename());
+            });
+
+            
+            message = "Imagen subida correctamente: " + fileNames;
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message)); 
         } catch (Exception e) {
-            message = "No se pudo subir la imagen: " + imagen.getOriginalFilename() + "!";
+            message = "No se pudo subir la imagen: " + imagenes[0].getOriginalFilename() + "!";
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
         }
     }

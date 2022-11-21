@@ -17,7 +17,7 @@ public class DeptoImagenService {
     @Autowired
     private DeptoImagenRepository deptoImagenRepository;
 
-    public DeptoImagen uploadImagen(MultipartFile imagen, Departamentos idDepartamentos) throws IOException {
+    public DeptoImagen uploadImagenes(MultipartFile imagen, Departamentos idDepartamentos) throws IOException {
         String nombreImagen = StringUtils.cleanPath(imagen.getOriginalFilename());
         DeptoImagen deptoImagen = new DeptoImagen(nombreImagen, imagen.getContentType(), imagen.getBytes(), idDepartamentos);
 

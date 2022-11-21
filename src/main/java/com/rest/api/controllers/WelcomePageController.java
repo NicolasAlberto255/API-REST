@@ -100,7 +100,7 @@ public class WelcomePageController {
                 "Obtener los Usuarios por Rol: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/idRol?idRol={idRol} \n <br>" +  
                 "Eliminar Usuarios por ID: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/usuariosDelete/{id} \n <br> \n <br>" +                
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/usuariosDelete/{id} \n <br>" +                
                 "Estado de Usuarios: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/estadoUsuario?estadoUsuario={estadoUsuario} \n <br> \n <br>" +
 
@@ -112,19 +112,7 @@ public class WelcomePageController {
                 "Guardar Rol: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/rol/rolSave \n <br>" +
                 "Actualizar Rol por ID: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/rol/rolUpdate/{id} \n <br>" +
-
-                "Tipo Inventario Endpoint \n <br>" +
-                "Obtener todos los Tipos de Departamento: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/tipoInventario/tipoDepartamentos \n <br>"+
-                "Obtener los Tipos de Departamento por ID: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/tipoInventario/tipoDepartamentoGet/{id} \n <br>"+
-                "Guardar Tipo de Departamento: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/tipoInventario/tipoDepartamentoSave \n <br>"+
-                "Actualizar Tipo de Departamento: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/tipoInventario/tipoDepartamentoUpdate/{id} \n <br>"+
-                "Eliminar Tipo de Departamento por ID: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/tipoInventario/tipoDepartamentoDelete/{id} \n <br> \n <br>"+
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/rol/rolUpdate/{id} \n <br> \n <br>" +
 
                 "Reservas Endpoint \n <br>" +
                 "Obtener todas las Reservas: " +

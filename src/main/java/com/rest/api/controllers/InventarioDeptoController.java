@@ -32,7 +32,39 @@ public class InventarioDeptoController {
     @PutMapping("inventarioDeptoUpdate/{id}")
     public String updateInventarioDepto(@PathVariable("id") int id, @RequestBody InventarioDepto inventarioDepto) {
         InventarioDepto inventarioDeptoUpdate = inventarioDeptoService.findById(id);
-        inventarioDeptoUpdate.setDescripcion(inventarioDepto.getDescripcion());
+        inventarioDeptoUpdate.setCntSillas(inventarioDepto.getCntSillas());
+        inventarioDeptoUpdate.setCntMesas(inventarioDepto.getCntMesas());
+        inventarioDeptoUpdate.setCntSofas(inventarioDepto.getCntSofas());
+        inventarioDeptoUpdate.setCntCamas(inventarioDepto.getCntCamas());
+        inventarioDeptoUpdate.setCntCojines(inventarioDepto.getCntCojines());
+        inventarioDeptoUpdate.setCntLamparas(inventarioDepto.getCntLamparas());
+        inventarioDeptoUpdate.setCntCortinas(inventarioDepto.getCntCortinas());
+        inventarioDeptoUpdate.setCntMuebles(inventarioDepto.getCntMuebles());
+        inventarioDeptoUpdate.setCntCloset(inventarioDepto.getCntCloset());
+        inventarioDeptoUpdate.setCntCuadros(inventarioDepto.getCntCuadros());
+        inventarioDeptoUpdate.setCntSobreMesas(inventarioDepto.getCntSobreMesas());
+        inventarioDeptoUpdate.setCntEspejos(inventarioDepto.getCntEspejos());
+        inventarioDeptoUpdate.setCntPlantas(inventarioDepto.getCntPlantas());
+        inventarioDeptoUpdate.setCntTV(inventarioDepto.getCntTV());
+        inventarioDeptoUpdate.setCntLavadoras(inventarioDepto.getCntLavadoras());
+        inventarioDeptoUpdate.setCntMicroondas(inventarioDepto.getCntMicroondas());
+        inventarioDeptoUpdate.setCntRefrigeradores(inventarioDepto.getCntRefrigeradores());
+        inventarioDeptoUpdate.setCntEstufas(inventarioDepto.getCntEstufas());
+        inventarioDeptoUpdate.setCntCocinas(inventarioDepto.getCntCocinas());
+        inventarioDeptoUpdate.setCntLavaplatos(inventarioDepto.getCntLavaplatos());
+        inventarioDeptoUpdate.setCntSecadoras(inventarioDepto.getCntSecadoras());
+        inventarioDeptoUpdate.setCntCafeteras(inventarioDepto.getCntCafeteras());
+        inventarioDeptoUpdate.setCntHornos(inventarioDepto.getCntHornos());
+        inventarioDeptoUpdate.setCntTenedores(inventarioDepto.getCntTenedores());
+        inventarioDeptoUpdate.setCntCucharas(inventarioDepto.getCntCucharas());
+        inventarioDeptoUpdate.setCntCuchillos(inventarioDepto.getCntCuchillos());
+        inventarioDeptoUpdate.setCntPlatos(inventarioDepto.getCntPlatos());
+        inventarioDeptoUpdate.setCntTazas(inventarioDepto.getCntTazas());
+        inventarioDeptoUpdate.setCntVasos(inventarioDepto.getCntVasos());
+        inventarioDeptoUpdate.setCntAlfombras(inventarioDepto.getCntAlfombras());
+        inventarioDeptoUpdate.setCntBaneras(inventarioDepto.getCntBaneras());
+        inventarioDeptoUpdate.setCntDuchas(inventarioDepto.getCntDuchas());
+        inventarioDeptoUpdate.setCntJacuzzis(inventarioDepto.getCntJacuzzis());
         inventarioDeptoService.saveInventarioDepto(inventarioDeptoUpdate);
         return "Inventario actualizada";
     }
