@@ -21,7 +21,7 @@ public class ServiciosImagenes {
     @Column(name = "data")
     private byte[] data;
 
-    @ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
+    @ManyToOne
     @JoinColumn(name = "idServicio")
     private Servicios servicios;
 

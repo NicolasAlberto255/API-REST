@@ -20,7 +20,7 @@ public class DeptoImagen {
     @Column(name = "data")
     private byte[] data;
 
-    @ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
+    @ManyToOne
     @JoinColumn(name = "idDepartamentos")
     private Departamentos departamentos;
 

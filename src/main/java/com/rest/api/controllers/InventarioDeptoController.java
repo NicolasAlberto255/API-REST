@@ -42,8 +42,8 @@ public class InventarioDeptoController {
         inventarioDeptoUpdate.setCntMuebles(inventarioDepto.getCntMuebles());
         inventarioDeptoUpdate.setCntCloset(inventarioDepto.getCntCloset());
         inventarioDeptoUpdate.setCntCuadros(inventarioDepto.getCntCuadros());
-        inventarioDeptoUpdate.setCntSobreMesas(inventarioDepto.getCntSobreMesas());
-        inventarioDeptoUpdate.setCntEspejos(inventarioDepto.getCntEspejos());
+        inventarioDeptoUpdate.setCntAdornos(inventarioDepto.getCntAdornos());
+        inventarioDeptoUpdate.setCntEspejoHabitacion(inventarioDepto.getCntEspejoHabitacion());
         inventarioDeptoUpdate.setCntPlantas(inventarioDepto.getCntPlantas());
         inventarioDeptoUpdate.setCntTV(inventarioDepto.getCntTV());
         inventarioDeptoUpdate.setCntLavadoras(inventarioDepto.getCntLavadoras());
@@ -51,7 +51,6 @@ public class InventarioDeptoController {
         inventarioDeptoUpdate.setCntRefrigeradores(inventarioDepto.getCntRefrigeradores());
         inventarioDeptoUpdate.setCntEstufas(inventarioDepto.getCntEstufas());
         inventarioDeptoUpdate.setCntCocinas(inventarioDepto.getCntCocinas());
-        inventarioDeptoUpdate.setCntLavaplatos(inventarioDepto.getCntLavaplatos());
         inventarioDeptoUpdate.setCntSecadoras(inventarioDepto.getCntSecadoras());
         inventarioDeptoUpdate.setCntCafeteras(inventarioDepto.getCntCafeteras());
         inventarioDeptoUpdate.setCntHornos(inventarioDepto.getCntHornos());
@@ -62,6 +61,8 @@ public class InventarioDeptoController {
         inventarioDeptoUpdate.setCntTazas(inventarioDepto.getCntTazas());
         inventarioDeptoUpdate.setCntVasos(inventarioDepto.getCntVasos());
         inventarioDeptoUpdate.setCntAlfombras(inventarioDepto.getCntAlfombras());
+        inventarioDeptoUpdate.setCntEspejoBano(inventarioDepto.getCntEspejoBano());
+        inventarioDeptoUpdate.setCntToallas(inventarioDepto.getCntToallas());
         inventarioDeptoUpdate.setCntBaneras(inventarioDepto.getCntBaneras());
         inventarioDeptoUpdate.setCntDuchas(inventarioDepto.getCntDuchas());
         inventarioDeptoUpdate.setCntJacuzzis(inventarioDepto.getCntJacuzzis());

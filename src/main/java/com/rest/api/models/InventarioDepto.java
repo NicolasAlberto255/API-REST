@@ -41,11 +41,11 @@ public class InventarioDepto {
     @Column(name = "CNTCUADROS")
     private int cntCuadros;
 
-    @Column(name = "CNTSOBREMESAS")
-    private int cntSobreMesas;
+    @Column(name = "CNTADORNOS")
+    private int cntAdornos;
 
-    @Column(name = "CNTESPEJOS")
-    private int cntEspejos;
+    @Column(name = "CNTESPEJOHABITACION")
+    private int cntEspejoHabitacion;
 
     @Column(name = "CNTPLANTAS")
     private int cntPlantas;
@@ -67,9 +67,6 @@ public class InventarioDepto {
 
     @Column(name = "CNTCOCINAS")
     private int cntCocinas;
-
-    @Column(name = "CNTLAVAPLATOS")
-    private int cntLavaplatos;
 
     @Column(name = "CNTSECADORAS")
     private int cntSecadoras;
@@ -101,6 +98,12 @@ public class InventarioDepto {
     @Column(name = "CNTALFOMBRAS")
     private int cntAlfombras;
 
+    @Column(name = "CNTESPEJOBANO")
+    private int cntEspejoBano;
+
+    @Column(name = "CNTTOALLAS")
+    private int cntToallas;
+
     @Column(name = "CNTDUCHAS")
     private int cntDuchas;
 
@@ -110,7 +113,7 @@ public class InventarioDepto {
     @Column(name = "CNTJACUZZIS")
     private int cntJacuzzis;
 
-    @ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
+    @ManyToOne
     @JoinColumn(name = "idDepartamentos")
     private Departamentos departamentos;
 
@@ -205,20 +208,20 @@ public class InventarioDepto {
         this.cntCuadros = cntCuadros;
     }
 
-    public int getCntSobreMesas() {
-        return cntSobreMesas;
+    public int getCntAdornos() {
+        return cntAdornos;
     }
 
-    public void setCntSobreMesas(int cntSobreMesas) {
-        this.cntSobreMesas = cntSobreMesas;
+    public void setCntAdornos(int cntAdornos) {
+        this.cntAdornos = cntAdornos;
     }
 
-    public int getCntEspejos() {
-        return cntEspejos;
+    public int getCntEspejoHabitacion() {
+        return cntEspejoHabitacion;
     }
 
-    public void setCntEspejos(int cntEspejos) {
-        this.cntEspejos = cntEspejos;
+    public void setCntEspejoHabitacion(int cntEspejoHabitacion) {
+        this.cntEspejoHabitacion = cntEspejoHabitacion;
     }
 
     public int getCntPlantas() {
@@ -275,14 +278,6 @@ public class InventarioDepto {
 
     public void setCntCocinas(int cntCocinas) {
         this.cntCocinas = cntCocinas;
-    }
-
-    public int getCntLavaplatos() {
-        return cntLavaplatos;
-    }
-
-    public void setCntLavaplatos(int cntLavaplatos) {
-        this.cntLavaplatos = cntLavaplatos;
     }
 
     public int getCntSecadoras() {
@@ -363,6 +358,22 @@ public class InventarioDepto {
 
     public void setCntAlfombras(int cntAlfombras) {
         this.cntAlfombras = cntAlfombras;
+    }
+
+    public int getCntEspejoBano() {
+        return cntEspejoBano;
+    }
+
+    public void setCntEspejoBano(int cntEspejoBano) {
+        this.cntEspejoBano = cntEspejoBano;
+    }
+
+    public int getCntToallas() {
+        return cntToallas;
+    }
+
+    public void setCntToallas(int cntToallas) {
+        this.cntToallas = cntToallas;
     }
 
     public int getCntBaneras() {
