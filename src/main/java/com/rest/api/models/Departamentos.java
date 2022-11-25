@@ -40,6 +40,9 @@ public class Departamentos {
     @Column(name = "balcon")
     private Boolean balcon;
 
+    @Column(name = "tipoDepto")
+    private String tipoDepto;
+
     @Column(name = "estadoDepartamento")
     private String estadoDepartamento;
 
@@ -134,6 +137,14 @@ public class Departamentos {
 
     public void setBalcon(Boolean balcon) {
         this.balcon = balcon;
+    }
+
+    public String getTipoDepto() {
+        return tipoDepto;
+    }
+
+    public void setTipoDepto(String tipoDepto) {
+        this.tipoDepto = tipoDepto;
     }
 
     public String getEstadoDepartamento() {

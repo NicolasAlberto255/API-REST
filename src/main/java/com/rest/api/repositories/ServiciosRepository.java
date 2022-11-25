@@ -12,8 +12,8 @@ public interface ServiciosRepository extends JpaRepository<Servicios, Integer> {
 
     List<Servicios> findServicioByNombreServicios(String nombreServicios);
 
-    @Query(value = "SELECT * FROM SERVICIOS WHERE DISPONIBILIDAD_SERVICIOS = ?1", nativeQuery = true)
-    List<Servicios> getServicioByDisponibilidad(String disponibilidadServicios);
+    @Query(value = "SELECT * FROM SERVICIOS WHERE ESTADO_SERVICIOS = ?1", nativeQuery = true)
+    List<Servicios> getServicioByEstado(String estadoServicios);
 
     public Servicios findById(int id);
 }

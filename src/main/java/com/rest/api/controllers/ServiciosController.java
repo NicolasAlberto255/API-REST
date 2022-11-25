@@ -19,8 +19,8 @@ public class ServiciosController {
     }
 
     @GetMapping("disponibilidad")
-    public List<Servicios> getServicioByDisponibilidad(@RequestParam String disponibilidadServicios) {
-        return serviciosService.getServicioByDisponibilidad(disponibilidadServicios);
+    public List<Servicios> getServicioByEstado(@RequestParam String disponibilidadServicios) {
+        return serviciosService.getServicioByEstado(disponibilidadServicios);
     }
 
     @GetMapping("servicioNombre")
@@ -43,7 +43,7 @@ public class ServiciosController {
         Servicios serviciosUpdate = serviciosService.findById(id);
         serviciosUpdate.setNombreServicios(servicios.getNombreServicios());
         serviciosUpdate.setDescripcionServicios(servicios.getDescripcionServicios());
-        serviciosUpdate.setDisponibilidadServicios(servicios.getDisponibilidadServicios());
+        serviciosUpdate.setEstadoServicios(servicios.getEstadoServicios());
         serviciosUpdate.setPrecioServicios(servicios.getPrecioServicios());
         return "Servicio Actualizado";
     }

@@ -65,8 +65,8 @@ public class InventarioDepto {
     @Column(name = "CNTESTUFAS")
     private int cntEstufas;
 
-    @Column(name = "CNTCOCINAS")
-    private int cntCocinas;
+    @Column(name = "CNTHOYAS")
+    private int cntHoyas;
 
     @Column(name = "CNTSECADORAS")
     private int cntSecadoras;
@@ -272,12 +272,12 @@ public class InventarioDepto {
         this.cntEstufas = cntEstufas;
     }
 
-    public int getCntCocinas() {
-        return cntCocinas;
+    public int getCntHoyas() {
+        return cntHoyas;
     }
 
-    public void setCntCocinas(int cntCocinas) {
-        this.cntCocinas = cntCocinas;
+    public void setCntHoyas(int cntHoyas) {
+        this.cntHoyas = cntHoyas;
     }
 
     public int getCntSecadoras() {

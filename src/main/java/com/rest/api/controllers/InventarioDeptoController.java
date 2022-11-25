@@ -50,7 +50,7 @@ public class InventarioDeptoController {
         inventarioDeptoUpdate.setCntMicroondas(inventarioDepto.getCntMicroondas());
         inventarioDeptoUpdate.setCntRefrigeradores(inventarioDepto.getCntRefrigeradores());
         inventarioDeptoUpdate.setCntEstufas(inventarioDepto.getCntEstufas());
-        inventarioDeptoUpdate.setCntCocinas(inventarioDepto.getCntCocinas());
+        inventarioDeptoUpdate.setCntHoyas(inventarioDepto.getCntHoyas());
         inventarioDeptoUpdate.setCntSecadoras(inventarioDepto.getCntSecadoras());
         inventarioDeptoUpdate.setCntCafeteras(inventarioDepto.getCntCafeteras());
         inventarioDeptoUpdate.setCntHornos(inventarioDepto.getCntHornos());

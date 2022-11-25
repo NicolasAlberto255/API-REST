@@ -24,8 +24,8 @@ public class ServiciosService {
         return serviciosRepository.findServicioByNombreServicios(nombreServicios);
     }
 
-    public List<Servicios> getServicioByDisponibilidad(String disponibilidadServicios) {
-        return serviciosRepository.getServicioByDisponibilidad(disponibilidadServicios);
+    public List<Servicios> getServicioByEstado(String estadoServicios) {
+        return serviciosRepository.getServicioByEstado(estadoServicios);
     }
     
     public Servicios updateServicios(Servicios servicios){

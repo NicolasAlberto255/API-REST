@@ -22,8 +22,8 @@ public class Servicios {
     @Column(name = "precioServicios")
     private int precioServicios;
 
-    @Column(name = "disponibilidadServicios")
-    private String disponibilidadServicios;
+    @Column(name = "estadoServicios")
+    private String estadoServicios;
 
     @ManyToMany(mappedBy = "servicios")
     @JsonIgnore
@@ -64,12 +64,12 @@ public class Servicios {
         this.precioServicios = precioServicios;
     }
 
-    public String getDisponibilidadServicios() {
-        return disponibilidadServicios;
+    public String getEstadoServicios() {
+        return estadoServicios;
     }
 
-    public void setDisponibilidadServicios(String disponibilidadServicios) {
-        this.disponibilidadServicios = disponibilidadServicios;
+    public void setEstadoServicios(String estadoServicios) {
+        this.estadoServicios = estadoServicios;
     }
 
     public Set<Reserva> getReservas() {
