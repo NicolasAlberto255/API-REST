@@ -39,7 +39,7 @@ public class Reserva {
     @Column(name = "cntPersonas")
     private int cntPersonas;
 
-    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.ALL, CascadeType.REFRESH })
+    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
     @JoinTable(
         name = "reserva_servicios", 
         joinColumns = @JoinColumn(
@@ -50,12 +50,22 @@ public class Reserva {
     private Set<Servicios> servicios = new HashSet<>();
 
     @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
-    @JoinColumn(name = "idUsuarios")
+    @JoinTable(
+        name = "reserva_usuario", 
+        joinColumns = @JoinColumn(
+            name = "idReserva"), 
+            inverseJoinColumns = @JoinColumn(
+                name = "idUsuario"))
     @JsonIgnore
     private Set<Usuarios> usuarios = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
-    @JoinColumn(name = "idDepartamentos")
+    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
+    @JoinTable(
+        name="reserva_departamentos",
+        joinColumns = @JoinColumn(
+            name = "idReserva"),
+            inverseJoinColumns = @JoinColumn(
+                name = "idDepartamentos"))
     @JsonIgnore
     private Set<Departamentos> departamentos = new HashSet<>();
 

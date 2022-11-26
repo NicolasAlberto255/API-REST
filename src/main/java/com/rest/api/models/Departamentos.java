@@ -22,6 +22,9 @@ public class Departamentos {
     @Column(name = "nombreComunaDepto")
     private String nombreComunaDepto;
 
+    @Column(name = "direccionDepartamento")
+    private String direccionDepartamento;
+
     @Column(name = "nEdificio")
     private int nEdificio;
 
@@ -46,7 +49,7 @@ public class Departamentos {
     @Column(name = "estadoDepartamento")
     private String estadoDepartamento;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "departamentos")
+    @ManyToMany(mappedBy = "departamentos")
     @JsonIgnore
     private Set<Reserva> departamentos = new HashSet<>();
 
@@ -55,6 +58,16 @@ public class Departamentos {
 
     @OneToMany(mappedBy = "departamentos", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     private Set<DeptoImagen> departamentosImagen;
+
+    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE,CascadeType.ALL, CascadeType.REFRESH }) 
+    @JoinTable(
+        name = "departamentos_servicios", 
+        joinColumns = @JoinColumn(
+            name = "idDepartamentos"), 
+            inverseJoinColumns = @JoinColumn(
+                name = "idServicios"))
+    @JsonIgnore
+    private Set<Servicios> servicios = new HashSet<>();
 
     public Departamentos() {
     }
@@ -89,6 +102,14 @@ public class Departamentos {
 
     public void setNombreComunaDepto(String nombreComunaDepto) {
         this.nombreComunaDepto = nombreComunaDepto;
+    }
+
+    public String getDireccionDepartamento() {
+        return direccionDepartamento;
+    }
+
+    public void setDireccionDepartamento(String direccionDepartamento) {
+        this.direccionDepartamento = direccionDepartamento;
     }
 
     public int getnEdificio() {

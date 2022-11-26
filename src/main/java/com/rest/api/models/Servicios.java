@@ -29,6 +29,10 @@ public class Servicios {
     @JsonIgnore
     private Set<Reserva> servicios = new HashSet<>();
 
+    @ManyToMany(mappedBy = "servicios")
+    @JsonIgnore
+    private Set<Departamentos> servicioDepto = new HashSet<>();
+
     public Servicios() {
     }
 
@@ -82,5 +86,17 @@ public class Servicios {
 
     public void addReservas(Reserva servicios) {
         this.servicios.add(servicios);
+    }
+
+    public Set<Departamentos> getDepartamentos() {
+        return servicioDepto;
+    }
+
+    public void setDepartamentos(Set<Departamentos> servicioDepto) {
+        this.servicioDepto = servicioDepto;
+    }
+    
+    public void addDepartamentos(Departamentos servicioDepto) {
+        this.servicioDepto.add(servicioDepto);
     }
 }

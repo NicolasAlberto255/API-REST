@@ -32,8 +32,10 @@ public class CheckInController {
     @PutMapping("checkInUpdate/{id}")
     public String updateCheckIn(@PathVariable("id") int id, @RequestBody CheckIn checkIn) {
         CheckIn checkInUpdate = checkInService.findById(id);
+        checkInUpdate.setNombreCliente(checkIn.getNombreCliente());
         checkInUpdate.setFechaCheckIn(checkIn.getFechaCheckIn());
         checkInUpdate.setAnotaciones(checkIn.getAnotaciones());
+        checkInUpdate.setMontoFinalReserva(checkIn.getMontoFinalReserva());
         checkInService.saveCheckIn(checkInUpdate);
         return "Check In actualizado";
     }
