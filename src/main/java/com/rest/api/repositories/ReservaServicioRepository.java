@@ -1,8 +1,9 @@
 package com.rest.api.repositories;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.*;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.rest.api.models.ReservaServicio;
 
@@ -15,8 +16,8 @@ public interface ReservaServicioRepository extends JpaRepository<ReservaServicio
     public ReservaServicio findByIdServicios(int id);
 
     @Query(value = "SELECT * FROM RESERVA_SERVICIOS WHERE ID_RESERVA = ?1", nativeQuery = true)
-    ReservaServicio getReservaServicioByIdReserva(@Param("idReserva") int idReserva);
+    List<ReservaServicio> getReservaServicioByIdReserva(int idReserva);
 
-    @Query(value = "SELECT * FROM RESERVA_SERVICIOS WHERE ID_SERVICIO = ?1", nativeQuery = true)
-    ReservaServicio getReservaServicioByIdServicios(@Param("idServicios") int idServicios);
+    @Query(value = "SELECT * FROM RESERVA_SERVICIOS WHERE ID_SERVICIOS = ?1", nativeQuery = true)
+    List<ReservaServicio> getReservaServicioByIdServicios(int idServicios);
 }

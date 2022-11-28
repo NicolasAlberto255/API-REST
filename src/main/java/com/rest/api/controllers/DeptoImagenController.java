@@ -91,7 +91,6 @@ public class DeptoImagenController {
                 }
                 fileNames.add(imagen.getOriginalFilename());
             });
-
             
             message = "Imagen subida correctamente: " + fileNames;
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message)); 

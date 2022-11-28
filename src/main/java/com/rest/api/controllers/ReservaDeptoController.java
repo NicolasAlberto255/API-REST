@@ -18,13 +18,13 @@ public class ReservaDeptoController {
         return reservaDeptoService.getReservaDepartamentos();
     }
 
-    @GetMapping("reservaDeptoByIdReserva/{id}")
-    public ReservaDepartamento findByIdReserva(@PathVariable("id") int id) {
-        return this.reservaDeptoService.findByIdReserva(id);
+    @GetMapping("reservaDeptoByIdReserva")
+    public List<ReservaDepartamento> getReservaDeptoByIdReserva(@RequestParam int id) {
+        return reservaDeptoService.getReservaDeptoByIdReserva(id);
     }
 
-    @GetMapping("reservaDeptoByIdDepartamento/{id}")
-    public ReservaDepartamento findByIdDepartamentos(@PathVariable("id") int id) {
-        return this.reservaDeptoService.findByIdDepartamentos(id);
+    @GetMapping("reservaDeptoByIdDepto")
+    public List<ReservaDepartamento> getReservaDeptoByIdDepto(@RequestParam int id) {
+        return reservaDeptoService.getReservaDeptoByIdDepto(id);
     }
 }

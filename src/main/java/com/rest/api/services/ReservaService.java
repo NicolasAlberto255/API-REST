@@ -55,13 +55,12 @@ public class ReservaService {
         }).collect(Collectors.toSet()));
         reserva.setServicios(reservaRequest.servicios.stream().map(servicios -> {
             Servicios serviciosContents = servicios;
-            if (serviciosContents.getIdServicios() > 0) {
-                serviciosContents = serviciosRepository.findById(serviciosContents.getIdServicios());
+            if (servicios.getIdServicios() > 0) {
+                serviciosContents = serviciosRepository.findById(servicios.getIdServicios());
             }
             serviciosContents.addReservas(reserva);
             return serviciosContents;
         }).collect(Collectors.toSet()));
-
         return reservaRepository.save(reserva);
     }
 

@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.Departamentos;
+import com.rest.api.reservaRequests.DeptoRequest;
 import com.rest.api.services.DepartamentosService;
 
 @RestController
@@ -32,6 +33,12 @@ public class DepartamentosController {
     public String saveDepartamento(@RequestBody Departamentos departamentos) {
         this.departamentosService.saveDepartamentos(departamentos);
         return "Departamento Guardado";
+    }
+
+    @PostMapping("deptoAdd")
+    public String addDepartamento(@RequestBody DeptoRequest deptoRequest) {
+        this.departamentosService.addDeptoServicio(deptoRequest);
+        return "Departamento Agregado";
     }
 
     @PutMapping("departamentosUpdate/{id}")

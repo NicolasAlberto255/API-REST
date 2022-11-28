@@ -16,11 +16,11 @@ public class ReservaDepartamentoService {
         return reservaDeptoRepository.findAll();
     }
 
-    public ReservaDepartamento findByIdReserva(int id) {
-        return reservaDeptoRepository.findByIdReserva(id);
+    public List<ReservaDepartamento> getReservaDeptoByIdReserva(int id) {
+        return reservaDeptoRepository.getReservaDeptoByIdReserva(id);
     }    
 
-    public ReservaDepartamento findByIdDepartamentos(int id) {
-        return reservaDeptoRepository.findByIdDepartamentos(id);
+    public List<ReservaDepartamento> getReservaDeptoByIdDepto(int id) {
+        return reservaDeptoRepository.getReservaDeptoByIdDepto(id);
     }
 }

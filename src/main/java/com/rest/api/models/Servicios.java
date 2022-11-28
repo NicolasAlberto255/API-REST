@@ -31,7 +31,7 @@ public class Servicios {
 
     @ManyToMany(mappedBy = "servicios")
     @JsonIgnore
-    private Set<Departamentos> servicioDepto = new HashSet<>();
+    private Set<Departamentos> deptoServicios = new HashSet<>();
 
     public Servicios() {
     }
@@ -89,14 +89,14 @@ public class Servicios {
     }
 
     public Set<Departamentos> getDepartamentos() {
-        return servicioDepto;
+        return deptoServicios;
     }
 
-    public void setDepartamentos(Set<Departamentos> servicioDepto) {
-        this.servicioDepto = servicioDepto;
+    public void setDepartamentos(Set<Departamentos> deptoServicios) {
+        this.deptoServicios = deptoServicios;
     }
     
-    public void addDepartamentos(Departamentos servicioDepto) {
-        this.servicioDepto.add(servicioDepto);
+    public void addDepartamentos(Departamentos deptoServicios) {
+        this.deptoServicios.add(deptoServicios);
     }
 }

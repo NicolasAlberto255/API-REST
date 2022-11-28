@@ -7,13 +7,10 @@ import javax.persistence.*;
 public class ReservaServicio {
     @Id
     @GeneratedValue
-    @Column(name = "idReservaServicio")
     private int idReservaServicio;
 
-    @Column(name = "idReserva")
     private int idReserva;
 
-    @Column(name = "idServicios")
     private int idServicios;
 
     public ReservaServicio() {

@@ -59,9 +59,9 @@ public class Departamentos {
     @OneToMany(mappedBy = "departamentos", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     private Set<DeptoImagen> departamentosImagen;
 
-    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE,CascadeType.ALL, CascadeType.REFRESH }) 
+    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH}) 
     @JoinTable(
-        name = "departamentos_servicios", 
+        name = "depto_servicio", 
         joinColumns = @JoinColumn(
             name = "idDepartamentos"), 
             inverseJoinColumns = @JoinColumn(
@@ -186,5 +186,13 @@ public class Departamentos {
 
     public void addReservas(Reserva departamentos) {
         this.departamentos.add(departamentos);
+    }
+
+    public Set<Servicios> getServicios(){
+        return servicios;
+    }
+
+    public void setServicios(Set<Servicios> servicios){
+        this.servicios = servicios;
     }
 }

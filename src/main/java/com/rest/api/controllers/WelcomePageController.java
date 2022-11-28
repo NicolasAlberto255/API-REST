@@ -19,6 +19,8 @@ public class WelcomePageController {
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/departamentosGet/{id} \n <br>" +
                 "Guardar un Departamento: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/departamentosSave \n <br>" +
+                "Añadir un Departamento: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/deptoAdd \n <br>" +
                 "Actualizar un Departamento: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/departamentosUpdate/{id} \n <br>" +
                 "Eliminar un Departamento: " +
@@ -37,6 +39,38 @@ public class WelcomePageController {
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/deptoImagen/imagenUpload \n <br>" +
                 "Eliminar una Imagen: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/deptoImagen/imagenDelete/{nombreImagen} \n <br> \n <br>" +
+
+                "Departamento Servicios Endpoint \n <br>" +
+                "Obtener todos los Departamento Servicios: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/deptoServicio/deptoServicios \n <br>" +
+                "Obtener un Departamento Servicio por ID Departamento: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/deptoServicio/deptoServicioByIdDepartamentos?id={id} \n <br>" +
+                "Obtener un Departamento Servicio por ID Servicio: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/deptoServicio/deptoServicioByIdServicios?id={id} \n <br> \n <br>" +
+
+                "Reserva Servicios Endpoint \n <br>" +
+                "Obtener todas las Reservas: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaServicio/reservaServicios \n <br>" +
+                "Obtener una Reserva por ID: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaServicio/reservaServicioByIdReserva?id={id} \n <br>" +
+                "Obtener una Reserva por ID Departamento: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaServicio/reservaServicioByIdServicio?id={id} \n <br>" +
+
+                "Reserva Usuario Endpoint \n <br>" +
+                "Obtener todas las Reservas: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaUsuario/reservaUsuarios \n <br>" +
+                "Obtener una Reserva por ID: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaUsuario/reservaUsuarioByIdReserva?id={id} \n <br>" +
+                "Obtener una Reserva por ID Usuario: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaUsuario/reservaUsuarioByIdUsuario?id={id} \n <br>" +
+
+                "Reserva Departamento Endpoint \n <br>" +
+                "Obtener todas las Reservas: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaDepartamento/reservaDepartamentos \n <br>" +
+                "Obtener una Reserva por ID: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaDepartamento/reservaDepartamentoByIdReserva?id={id} \n <br>" +
+                "Obtener una Reserva por ID Departamento: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaDepartamento/reservaDepartamentoByIdDepartamento?id={id} \n <br>" +
 
                 "Servicios Endpoint \n <br>" +
                 "Obtener todos los Servicios: " +

@@ -17,11 +17,11 @@ public class ReservaUsuarioService {
         return reservaUsuarioRepository.findAll();
     }
 
-    public ReservaUsuario findByIdReserva(int id) {
-        return reservaUsuarioRepository.findByIdReserva(id);
+    public List<ReservaUsuario> getReservaUsuarioByIdReserva(int id) {
+        return reservaUsuarioRepository.getReservaUsuarioByIdReserva(id);
     }
 
-    public ReservaUsuario findByIdUsuario(int id) {
-        return reservaUsuarioRepository.findByIdUsuario(id);
+    public List<ReservaUsuario> getReservaUsuarioByIdUsuario(int id) {
+        return reservaUsuarioRepository.getReservaUsuarioByIdUsuario(id);
     }
 }
