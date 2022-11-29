@@ -18,9 +18,9 @@ public class CorreoController {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
 
         mailMessage.setFrom("rent.soporte@gmail.com");
-        mailMessage.setTo(to);
-        mailMessage.setSubject(subject);
-        mailMessage.setText(text);
+        mailMessage.setTo("nicolasalberto255@hotmail.com");
+        mailMessage.setSubject("subject");
+        mailMessage.setText("text");
 
         mail.send(mailMessage);
 
