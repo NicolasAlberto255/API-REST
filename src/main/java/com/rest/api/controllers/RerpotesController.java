@@ -1,10 +1,14 @@
 package com.rest.api.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import com.rest.api.models.Reportes;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import com.rest.api.response.ResponseReporte;
 import com.rest.api.services.ReportesService;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("reportes/")
@@ -13,27 +17,23 @@ public class RerpotesController {
     @Autowired 
     ReportesService reportesService;
 
-    @GetMapping("listReportes")
-    public List<Reportes> getReportes() {
-        return reportesService.getReportes();
-    }
-    @GetMapping("{id}")
-    public Reportes findById(@PathVariable("id") int id) {
-        return this.reportesService.findById(id);
-    }
+   @GetMapping("reportesList")
+   public ResponseEntity<List<ResponseReporte>> getReportesList(){
+    List<ResponseReporte> reportes = reportesService.getAllFiles().map(reporteFile -> {
+        String reporteDownloadUri = ServletUriComponentsBuilder
+                .fromCurrentContextPath()
+                .path("/reportes/download/")
+                .path(reporteFile.getNombreReporte())
+                .toUriString();
 
-    @PostMapping("reportesSave")
-    public Reportes saveReportes(@RequestBody Reportes reportes) {
-        return this.reportesService.saveReportes(reportes);
-    }
+            return new ResponseReporte(
+                reporteFile.getIdReporte(),
+                reporteFile.getNombreReporte(),
+                reporteDownloadUri,
+                reporteFile.getTipo(),
+                reporteFile.getData().length);
+        }).collect(Collectors.toList());
 
-    @PostMapping("reportesUpdate/{id}")
-    public Reportes updateReportes(@RequestBody Reportes reportes) {
-        return this.reportesService.saveReportes(reportes);
-    }
-
-    @DeleteMapping("reportesDelete/{id}")
-    public boolean deleteReportes(@PathVariable("id") int id) {
-        return this.reportesService.deleteReportes(id);
+        return ResponseEntity.status(HttpStatus.OK).body(reportes);
     }
 }

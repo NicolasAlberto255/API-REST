@@ -1,29 +1,30 @@
 package com.rest.api.controllers;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.RestController;
+import com.rest.api.models.Correo;
+import com.rest.api.models.CorreoAttachment;
+import com.rest.api.services.CorreoService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class CorreoController {
     
     @Autowired
-    JavaMailSender mail;
+    CorreoService correoService;
 
     @PostMapping("sendEmail")
-    public ResponseEntity<?> sendEmail(String to, String subject, String text) {
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
+    public String sendCorreo(@RequestBody Correo correo){
+        correoService.sendEmail(correo);
+        return "Correo enviado Correctamente";
+    }
 
-        mailMessage.setFrom("rent.soporte@gmail.com");
-        mailMessage.setTo("nicolasalberto255@hotmail.com");
-        mailMessage.setSubject("subject");
-        mailMessage.setText("text");
-
-        mail.send(mailMessage);
-
-        return ResponseEntity.ok("Email enviado");
+    @PostMapping("sendEmailWithAttachment")
+    public String sendEmailWithAttachment(@RequestBody CorreoAttachment correoAttachment) throws MessagingException{
+        correoService.sendEmailWithAttachment(correoAttachment);
+        return "Correo enviado Correctamente";
     }
 }
