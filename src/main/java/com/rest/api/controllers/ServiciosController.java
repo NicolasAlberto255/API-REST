@@ -1,6 +1,9 @@
 package com.rest.api.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.Servicios;
@@ -31,6 +34,23 @@ public class ServiciosController {
     @GetMapping("serviciosGet/{id}")
     public Servicios findById(@PathVariable("id") int id) {
         return this.serviciosService.findById(id);
+    }
+
+    @GetMapping("countServicios")
+    public int getCountServicio() {
+        return serviciosService.getCountServicio();
+    }
+
+    @GetMapping("countServiciosByEstado")
+    public Map<String, String> getCountServicioByEstado() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = serviciosService.getCountServicioByEstado();
+
+        for (String string : list) {
+            String[] parts = string.split(",");
+            map.put(parts[0], parts[1]);
+        }
+        return map;
     }
 
     @PostMapping("serviciosSave")

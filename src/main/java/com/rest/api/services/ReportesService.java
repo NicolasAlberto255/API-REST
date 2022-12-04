@@ -15,7 +15,7 @@ public class ReportesService {
     @Autowired
     ReportesRepository reportesRepository;
 
-    public Reportes uploadReportes(MultipartFile reporte) throws IOException {
+    public Reportes uploadReporte(MultipartFile reporte) throws IOException {
         String nombreReporte = StringUtils.cleanPath(reporte.getOriginalFilename());
         Reportes reportes = new Reportes(nombreReporte, reporte.getContentType(), reporte.getBytes());
 

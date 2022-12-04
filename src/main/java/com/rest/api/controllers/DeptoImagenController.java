@@ -80,7 +80,6 @@ public class DeptoImagenController {
         String message = "";
         
         try { 
-            
             List<String> fileNames = new ArrayList<>();
 
             Arrays.asList(imagenes).stream().forEach(imagen -> {
@@ -110,7 +109,7 @@ public class DeptoImagenController {
             message = "Imagen eliminada correctamente";
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message)); 
         } catch (Exception e) {
-            message = "No se pudo eliminar la imagen";
+            message = "No se pudo eliminar la imagen" + nombreImagen + "!";
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
         }
     }

@@ -48,6 +48,30 @@ public class DepartamentosService {
         return (List<Departamentos>) departamentosRepository.findAll();
     }
 
+    public int getCountDepto() {
+        return departamentosRepository.getCountDepto();
+    }
+
+    public List<String> getCountDeptoByEstado() {
+        return departamentosRepository.getCountDeptoByEstado();
+    }
+
+    public List<String> getCountDeptoByComuna(){
+        return departamentosRepository.getCountDeptoByComuna();
+    }
+
+    public List<String> getCountDeptoByRegion(){
+        return departamentosRepository.getCountDeptoByRegion();
+    }
+
+    public List<String> getCountDeptoByTipo(){
+        return departamentosRepository.getCountDeptoByTipo();
+    }
+
+    public List<Integer> getVNoche(){
+        return departamentosRepository.getVNoche();
+    }
+
     public Departamentos saveDepartamentos(Departamentos departamentos) {
         return departamentosRepository.save(departamentos);
     }

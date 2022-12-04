@@ -28,6 +28,14 @@ public class ServiciosService {
         return serviciosRepository.getServicioByEstado(estadoServicios);
     }
     
+    public int getCountServicio() {
+        return serviciosRepository.getCountServicio();
+    }
+
+    public List<String> getCountServicioByEstado() {
+        return serviciosRepository.getCountServicioByEstado();
+    }
+
     public Servicios updateServicios(Servicios servicios){
         return serviciosRepository.save(servicios);
     }

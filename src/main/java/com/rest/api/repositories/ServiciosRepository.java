@@ -12,8 +12,14 @@ public interface ServiciosRepository extends JpaRepository<Servicios, Integer> {
 
     List<Servicios> findServicioByNombreServicios(String nombreServicios);
 
+    public Servicios findById(int id);
+
     @Query(value = "SELECT * FROM SERVICIOS WHERE ESTADO_SERVICIOS = ?1", nativeQuery = true)
     List<Servicios> getServicioByEstado(String estadoServicios);
 
-    public Servicios findById(int id);
+    @Query(value = "SELECT COUNT(*) FROM SERVICIOS", nativeQuery = true)
+    int getCountServicio();
+    
+    @Query(value = "SELECT ESTADO_SERVICIOS, COUNT(ESTADO_SERVICIOS) FROM SERVICIOS GROUP BY ESTADO_SERVICIOS", nativeQuery = true)
+    List<String> getCountServicioByEstado();
 }

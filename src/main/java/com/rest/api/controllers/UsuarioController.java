@@ -1,6 +1,9 @@
 package com.rest.api.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.Usuarios;
@@ -46,6 +49,47 @@ public class UsuarioController {
     @GetMapping("idRol")
     public List<Usuarios> getUsuariosByIdRol(@RequestParam int idRol){
         return usuarioService.getUsuariosByIdRol(idRol);
+    }
+
+    @GetMapping("countUsuarios")
+    public int getCountUsuario() {
+        return usuarioService.getCountUsuario();
+    }
+
+    @GetMapping("countUsuariosByRol")
+    public Map<String, String> getCountUsuariosByRol() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = usuarioService.getCountUsuariosByRol();
+
+        for (String s : list) {
+            String[] split = s.split(",");
+            map.put(split[0], split[1]);
+        }
+        return map;
+    }
+
+    @GetMapping("countUsuariosByComuna")
+    public Map<String, String> getCountUsuariosByComuna() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = usuarioService.getCountUsuariosByComuna();
+
+        for (String s : list) {
+            String[] split = s.split(",");
+            map.put(split[0], split[1]);
+        }
+        return map;
+    }
+
+    @GetMapping("countUsuariosByRegion")
+    public Map<String, String> getCountUsuariosByRegion() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = usuarioService.getCountUsuariosByRegion();
+
+        for (String s : list) {
+            String[] split = s.split(",");
+            map.put(split[0], split[1]);
+        }
+        return map;
     }
 
     @PostMapping("usuariosSave")

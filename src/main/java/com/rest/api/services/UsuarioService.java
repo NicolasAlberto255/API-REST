@@ -27,6 +27,22 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
+    public int getCountUsuario() {
+        return usuarioRepository.getCountUsuarios();
+    }
+
+    public List<String> getCountUsuariosByRol() {
+        return usuarioRepository.getCountUsuariosByRol();
+    }
+
+    public List<String> getCountUsuariosByComuna() {
+        return usuarioRepository.getCountUsuariosByComuna();
+    }
+
+    public List<String> getCountUsuariosByRegion() {
+        return usuarioRepository.getCountUsuariosByRegion();
+    }
+
     public List<Usuarios> findUsuarioByCedulaUsuario(String nombreUsuario) {
         return usuarioRepository.findUsuarioByCedulaUsuario(nombreUsuario);
     }

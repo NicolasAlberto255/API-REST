@@ -1,6 +1,8 @@
 package com.rest.api.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.Departamentos;
@@ -27,6 +29,64 @@ public class DepartamentosController {
     @GetMapping("departamentosGet/{id}")
     public Departamentos findById(@PathVariable("id") int id) {
         return this.departamentosService.findById(id);
+    }
+
+    @GetMapping("countDepto")
+    public int getCountDepto() {
+        return this.departamentosService.getCountDepto();
+    }
+
+    @GetMapping("countDeptoByEstado")
+    public Map<String, String> getCountDeptoByEstado() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = this.departamentosService.getCountDeptoByEstado();
+        
+        for (String string : list) {
+            String[] parts = string.split(",");
+            map.put(parts[0], parts[1]);
+        }
+        return map;
+    }
+
+    @GetMapping("countDeptoByComuna")
+    public Map<String, String> getCountDeptoByComuna() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = this.departamentosService.getCountDeptoByComuna();
+        
+        for (String string : list) {
+            String[] parts = string.split(",");
+            map.put(parts[0], parts[1]);
+        }
+        return map;
+    }
+
+    @GetMapping("countDeptoByRegion")
+    public Map<String, String> getCountDeptoByRegion() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = this.departamentosService.getCountDeptoByRegion();
+        
+        for (String string : list) {
+            String[] parts = string.split(",");
+            map.put(parts[0], parts[1]);
+        }
+        return map;
+    }
+
+    @GetMapping("countDeptoByTipo")
+    public Map<String, String> getCountDeptoByTipo() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = this.departamentosService.getCountDeptoByTipo();
+        
+        for (String string : list) {
+            String[] parts = string.split(",");
+            map.put(parts[0], parts[1]);
+        }
+        return map;
+    }
+
+    @GetMapping("vNoche")
+    public List<Integer> getVNoche() {
+        return this.departamentosService.getVNoche();
     }
 
     @PostMapping("departamentosSave")

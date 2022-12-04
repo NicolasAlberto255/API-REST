@@ -25,6 +25,18 @@ public class WelcomePageController {
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/departamentosUpdate/{id} \n <br>" +
                 "Eliminar un Departamento: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/departamentosDelete/{id} \n <br>" +
+                "Todos los Valores de Noches: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/vNoche \n <br>" +
+                "Contar Departamentos por Estado: " + 
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/countDeptoByEstado \n <br>" +
+                "Contar Departamentos por Comuna: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/countDeptoByComuna \n <br>" +
+                "Contar Departamentos por Region: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/countDeptoByRegion \n <br>" +
+                "Contar Departamentos: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/countDepto \n <br>" +
+                "Contar Departamentos por Tipo: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/countDeptoByTipo \n <br>" +
                 "Estado de Disponibilidad de Departamentos: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/departamentos/estadoDepartamento?estadoDepartamento={estado} \n <br> \n <br>" +
 
@@ -54,7 +66,7 @@ public class WelcomePageController {
                 "Obtener una Reserva por ID: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaServicio/reservaServicioByIdReserva?id={id} \n <br>" +
                 "Obtener una Reserva por ID Departamento: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaServicio/reservaServicioByIdServicio?id={id} \n <br>" +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaServicio/reservaServicioByIdServicio?id={id} \n <br> \n <br>" +
 
                 "Reserva Usuario Endpoint \n <br>" +
                 "Obtener todas las Reservas: " +
@@ -62,7 +74,7 @@ public class WelcomePageController {
                 "Obtener una Reserva por ID: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaUsuario/reservaUsuarioByIdReserva?id={id} \n <br>" +
                 "Obtener una Reserva por ID Usuario: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaUsuario/reservaUsuarioByIdUsuario?id={id} \n <br>" +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaUsuario/reservaUsuarioByIdUsuario?id={id} \n <br> \n <br>" +
 
                 "Reserva Departamento Endpoint \n <br>" +
                 "Obtener todas las Reservas: " +
@@ -70,7 +82,7 @@ public class WelcomePageController {
                 "Obtener una Reserva por ID: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaDepartamento/reservaDepartamentoByIdReserva?id={id} \n <br>" +
                 "Obtener una Reserva por ID Departamento: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaDepartamento/reservaDepartamentoByIdDepartamento?id={id} \n <br>" +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reservaDepartamento/reservaDepartamentoByIdDepartamento?id={id} \n <br> \n <br>" +
 
                 "Servicios Endpoint \n <br>" +
                 "Obtener todos los Servicios: " +
@@ -134,7 +146,15 @@ public class WelcomePageController {
                 "Obtener los Usuarios por Rol: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/idRol?idRol={idRol} \n <br>" +  
                 "Eliminar Usuarios por ID: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/usuariosDelete/{id} \n <br>" +                
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/usuariosDelete/{id} \n <br>" +
+                "Contar Usuarios: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/countUsuarios \n <br>" +
+                "Contar Usuarios por Rol: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/countUsuariosByRol \n <br>" +
+                "Contar Usuarios por Comuna: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/countUsuariosByComuna \n <br>" +
+                "Contar Usuarios por Region: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/countUsuariosByRegion \n <br>" +
                 "Estado de Usuarios: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/usuario/estadoUsuario?estadoUsuario={estadoUsuario} \n <br> \n <br>" +
 
@@ -208,6 +228,22 @@ public class WelcomePageController {
                 "Actualizar Check Out por ID: " +
                 "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkout/checkOutUpdate/{id} \n <br>" +
                 "Eliminar Check Out por ID: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkout/checkOutDelete/{id} \n <br> \n <br>";
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/checkout/checkOutDelete/{id} \n <br> \n <br>" +
+
+                "Enviar Correo Endpoint \n <br>" +
+                "Enviar Correo: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/sendEmail \n <br>" +
+                "Enviar Correo con Archivo: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/sendEmailWithAttachment \n <br> \n <br>" +
+
+                "Reporte Endpoint \n <br>" +
+                "Obtener todos los Reportes: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/reportesList \n <br>" +
+                "Subir Reporte: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/reportesUpload \n <br>" +
+                "Descargar Reportes: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/downloadReporte/{nombreReporte} \n <br>" +
+                "Eliminar Reportes: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/deleteReporte/{nombreReporte} \n <br> \n <br>";
     }
 }
