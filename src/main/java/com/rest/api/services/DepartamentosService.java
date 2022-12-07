@@ -48,7 +48,7 @@ public class DepartamentosService {
         return (List<Departamentos>) departamentosRepository.findAll();
     }
 
-    public int getCountDepto() {
+    public List<String> getCountDepto() {
         return departamentosRepository.getCountDepto();
     }
 
@@ -68,8 +68,12 @@ public class DepartamentosService {
         return departamentosRepository.getCountDeptoByTipo();
     }
 
-    public List<Integer> getVNoche(){
-        return departamentosRepository.getVNoche();
+    public List<String> getAvgVNoche(){
+        return departamentosRepository.getAvgVNoche();
+    }
+
+    public List<String> getSumVNoche(){
+        return departamentosRepository.getSumVNoche();
     }
 
     public Departamentos saveDepartamentos(Departamentos departamentos) {

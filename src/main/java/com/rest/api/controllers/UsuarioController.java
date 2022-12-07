@@ -2,7 +2,6 @@ package com.rest.api.controllers;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -52,12 +51,16 @@ public class UsuarioController {
     }
 
     @GetMapping("countUsuarios")
-    public int getCountUsuario() {
-        return usuarioService.getCountUsuario();
+    public Object getCountUsuario() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = usuarioService.getCountUsuario();
+
+        map.put("TotalUsuarios", list.get(0));
+        return map;
     }
 
     @GetMapping("countUsuariosByRol")
-    public Map<String, String> getCountUsuariosByRol() {
+    public Object getCountUsuariosByRol() {
         HashMap<String, String> map = new HashMap<>();
         List<String> list = usuarioService.getCountUsuariosByRol();
 
@@ -69,7 +72,7 @@ public class UsuarioController {
     }
 
     @GetMapping("countUsuariosByComuna")
-    public Map<String, String> getCountUsuariosByComuna() {
+    public Object getCountUsuariosByComuna() {
         HashMap<String, String> map = new HashMap<>();
         List<String> list = usuarioService.getCountUsuariosByComuna();
 
@@ -81,7 +84,7 @@ public class UsuarioController {
     }
 
     @GetMapping("countUsuariosByRegion")
-    public Map<String, String> getCountUsuariosByRegion() {
+    public Object getCountUsuariosByRegion() {
         HashMap<String, String> map = new HashMap<>();
         List<String> list = usuarioService.getCountUsuariosByRegion();
 

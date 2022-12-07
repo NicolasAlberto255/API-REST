@@ -4,8 +4,8 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "reportes")
-public class Reportes {
+@Table(name = "reportesPdf")
+public class ReportesPdf {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idReporte")
@@ -21,10 +21,10 @@ public class Reportes {
     @Column(name = "data")
     private byte[] data;
 
-    public Reportes() {
+    public ReportesPdf() {
     }
 
-    public Reportes(String nombreReporte, String tipo, byte[] data) {
+    public ReportesPdf(String nombreReporte, String tipo, byte[] data) {
         this.nombreReporte = nombreReporte;
         this.tipo = tipo;
         this.data = data;

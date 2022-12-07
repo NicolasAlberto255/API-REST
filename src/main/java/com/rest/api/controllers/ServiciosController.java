@@ -37,8 +37,42 @@ public class ServiciosController {
     }
 
     @GetMapping("countServicios")
-    public int getCountServicio() {
-        return serviciosService.getCountServicio();
+    public Object getCountServicio() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = serviciosService.getCountServicio();
+
+        map.put("TotalServicios", list.get(0));
+        return map;
+    }
+
+    @GetMapping("sumValor")
+    public Object getSumPrecioServicio() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = serviciosService.getSumPrecioServicio();
+
+        map.put("TotalValorServicio", list.get(0));
+        return map;
+    }
+
+    @GetMapping("avgValor")
+    public Object getAvgPrecioServicio() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = serviciosService.getAvgPrecioServicio();
+
+        map.put("PromedioValorServicio", list.get(0));
+        return map;
+    }
+
+    @GetMapping("preciosServicio")
+    public Object getPreciosServicio() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = serviciosService.getPreciosServicio();
+
+        for (String string : list) {
+            String[] parts = string.split(",");
+            map.put(parts[0], parts[1]);
+        }
+        return map;
     }
 
     @GetMapping("countServiciosByEstado")

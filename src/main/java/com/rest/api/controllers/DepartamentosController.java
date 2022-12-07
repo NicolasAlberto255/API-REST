@@ -2,7 +2,6 @@ package com.rest.api.controllers;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.Departamentos;
@@ -32,12 +31,34 @@ public class DepartamentosController {
     }
 
     @GetMapping("countDepto")
-    public int getCountDepto() {
-        return this.departamentosService.getCountDepto();
+    public Object getCountDepto() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = this.departamentosService.getCountDepto();
+
+        map.put("TotalDepartamentos", list.get(0));
+        return map;
+    }
+
+    @GetMapping("sumVNoche")
+    public Object getSumVNoche() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = this.departamentosService.getSumVNoche();
+
+        map.put("TotalValorNoche", list.get(0));
+        return map;
+    }
+
+    @GetMapping("avgVNoche")
+    public Object getAvgVNoche() {
+        HashMap<String, String> map = new HashMap<>();
+        List<String> list = this.departamentosService.getAvgVNoche();
+
+        map.put("PromedioValorNoche", list.get(0));
+        return map;
     }
 
     @GetMapping("countDeptoByEstado")
-    public Map<String, String> getCountDeptoByEstado() {
+    public Object getCountDeptoByEstado() {
         HashMap<String, String> map = new HashMap<>();
         List<String> list = this.departamentosService.getCountDeptoByEstado();
         
@@ -49,7 +70,7 @@ public class DepartamentosController {
     }
 
     @GetMapping("countDeptoByComuna")
-    public Map<String, String> getCountDeptoByComuna() {
+    public Object getCountDeptoByComuna() {
         HashMap<String, String> map = new HashMap<>();
         List<String> list = this.departamentosService.getCountDeptoByComuna();
         
@@ -61,7 +82,7 @@ public class DepartamentosController {
     }
 
     @GetMapping("countDeptoByRegion")
-    public Map<String, String> getCountDeptoByRegion() {
+    public Object getCountDeptoByRegion() {
         HashMap<String, String> map = new HashMap<>();
         List<String> list = this.departamentosService.getCountDeptoByRegion();
         
@@ -73,7 +94,7 @@ public class DepartamentosController {
     }
 
     @GetMapping("countDeptoByTipo")
-    public Map<String, String> getCountDeptoByTipo() {
+    public Object getCountDeptoByTipo() {
         HashMap<String, String> map = new HashMap<>();
         List<String> list = this.departamentosService.getCountDeptoByTipo();
         
@@ -82,11 +103,6 @@ public class DepartamentosController {
             map.put(parts[0], parts[1]);
         }
         return map;
-    }
-
-    @GetMapping("vNoche")
-    public List<Integer> getVNoche() {
-        return this.departamentosService.getVNoche();
     }
 
     @PostMapping("departamentosSave")

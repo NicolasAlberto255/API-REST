@@ -1,13 +1,13 @@
 package com.rest.api.response;
 
-public class ResponseReporte {
+public class ResponseReportePdf {
     private int idReporte;
     private String nombreReporte;
     private String url;
     private String tipoExtension;
     private long size;
 
-    public ResponseReporte(int idReporte, String nombreReporte, String url, String tipoExtension, long size) {
+    public ResponseReportePdf(int idReporte, String nombreReporte, String url, String tipoExtension, long size) {
         this.idReporte = idReporte;
         this.nombreReporte = nombreReporte;
         this.url = url;

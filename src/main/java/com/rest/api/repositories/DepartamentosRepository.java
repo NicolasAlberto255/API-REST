@@ -16,7 +16,13 @@ public interface DepartamentosRepository extends JpaRepository<Departamentos, In
     List<Departamentos> getDepartamentosByEstado(String estadoDepartamento);
 
     @Query(value = "SELECT COUNT(*) FROM DEPARTAMENTOS", nativeQuery = true)
-    int getCountDepto();
+    List<String> getCountDepto();
+    
+    @Query(value = "SELECT AVG(V_NOCHE) FROM DEPARTAMENTOS", nativeQuery = true)
+    List<String> getAvgVNoche();
+
+    @Query(value = "SELECT SUM(V_NOCHE) FROM DEPARTAMENTOS", nativeQuery = true)
+    List<String> getSumVNoche();
 
     @Query(value = "SELECT ESTADO_DEPARTAMENTO, COUNT(*) AS TOTAL_DEPTO_ESTADO FROM DEPARTAMENTOS GROUP BY ESTADO_DEPARTAMENTO",
                 nativeQuery = true)
@@ -34,6 +40,5 @@ public interface DepartamentosRepository extends JpaRepository<Departamentos, In
                 nativeQuery = true)
     List<String> getCountDeptoByTipo();
 
-    @Query(value = "SELECT V_NOCHE FROM DEPARTAMENTOS", nativeQuery = true)
-    List<Integer> getVNoche();
+    
 }

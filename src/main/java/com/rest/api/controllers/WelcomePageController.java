@@ -238,12 +238,14 @@ public class WelcomePageController {
 
                 "Reporte Endpoint \n <br>" +
                 "Obtener todos los Reportes: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/reportesList \n <br>" +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportesPdf/reportesList \n <br>" +
                 "Subir Reporte: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/reportesUpload \n <br>" +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportesPdf/reportesUpload \n <br>" +
                 "Descargar Reportes: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/downloadReporte/{nombreReporte} \n <br>" +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportesPdf/downloadReporte/{nombreReporte} \n <br>" +
+                "Crear Reporte Json: " +
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportesPdf/createReporteJson \n <br>" +
                 "Eliminar Reportes: " +
-                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportes/deleteReporte/{nombreReporte} \n <br> \n <br>";
+                "http://apirent-env.eba-n7bvnjak.us-east-1.elasticbeanstalk.com/reportesPdf/deleteReporte/{nombreReporte} \n <br> \n <br>";
     }
 }

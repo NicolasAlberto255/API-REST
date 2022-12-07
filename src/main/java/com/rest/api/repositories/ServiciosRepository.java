@@ -18,8 +18,17 @@ public interface ServiciosRepository extends JpaRepository<Servicios, Integer> {
     List<Servicios> getServicioByEstado(String estadoServicios);
 
     @Query(value = "SELECT COUNT(*) FROM SERVICIOS", nativeQuery = true)
-    int getCountServicio();
+    List<String> getCountServicio();
     
+    @Query(value = "SELECT TRUNC(AVG(PRECIO_SERVICIOS)) FROM SERVICIOS", nativeQuery = true)
+    List<String> getAvgPrecioServicio();
+
+    @Query(value = "SELECT SUM(PRECIO_SERVICIOS) FROM SERVICIOS", nativeQuery = true)
+    List<String> getSumPrecioServicio();
+
+    @Query(value = "SELECT NOMBRE_SERVICIOS,PRECIO_SERVICIOS FROM SERVICIOS WHERE PRECIO_SERVICIOS > 0",  nativeQuery = true)
+    List<String> getPreciosServicio();
+
     @Query(value = "SELECT ESTADO_SERVICIOS, COUNT(ESTADO_SERVICIOS) FROM SERVICIOS GROUP BY ESTADO_SERVICIOS", nativeQuery = true)
     List<String> getCountServicioByEstado();
 }

@@ -27,7 +27,7 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
-    public int getCountUsuario() {
+    public List<String> getCountUsuario() {
         return usuarioRepository.getCountUsuarios();
     }
 
