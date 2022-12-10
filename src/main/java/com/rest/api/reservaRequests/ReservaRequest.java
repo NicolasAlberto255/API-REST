@@ -17,4 +17,5 @@ public class ReservaRequest {
     public Set<Servicios> servicios;
     public Set<Departamentos> departamentos;
     public Set<Usuarios> usuarios;
+    public Set<DeptoGanancias> deptoGanancias;
 }

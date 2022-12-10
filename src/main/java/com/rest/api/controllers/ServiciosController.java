@@ -1,9 +1,6 @@
 package com.rest.api.controllers;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.Servicios;
@@ -34,57 +31,6 @@ public class ServiciosController {
     @GetMapping("serviciosGet/{id}")
     public Servicios findById(@PathVariable("id") int id) {
         return this.serviciosService.findById(id);
-    }
-
-    @GetMapping("countServicios")
-    public Object getCountServicio() {
-        HashMap<String, String> map = new HashMap<>();
-        List<String> list = serviciosService.getCountServicio();
-
-        map.put("TotalServicios", list.get(0));
-        return map;
-    }
-
-    @GetMapping("sumValor")
-    public Object getSumPrecioServicio() {
-        HashMap<String, String> map = new HashMap<>();
-        List<String> list = serviciosService.getSumPrecioServicio();
-
-        map.put("TotalValorServicio", list.get(0));
-        return map;
-    }
-
-    @GetMapping("avgValor")
-    public Object getAvgPrecioServicio() {
-        HashMap<String, String> map = new HashMap<>();
-        List<String> list = serviciosService.getAvgPrecioServicio();
-
-        map.put("PromedioValorServicio", list.get(0));
-        return map;
-    }
-
-    @GetMapping("preciosServicio")
-    public Object getPreciosServicio() {
-        HashMap<String, String> map = new HashMap<>();
-        List<String> list = serviciosService.getPreciosServicio();
-
-        for (String string : list) {
-            String[] parts = string.split(",");
-            map.put(parts[0], parts[1]);
-        }
-        return map;
-    }
-
-    @GetMapping("countServiciosByEstado")
-    public Map<String, String> getCountServicioByEstado() {
-        HashMap<String, String> map = new HashMap<>();
-        List<String> list = serviciosService.getCountServicioByEstado();
-
-        for (String string : list) {
-            String[] parts = string.split(",");
-            map.put(parts[0], parts[1]);
-        }
-        return map;
     }
 
     @PostMapping("serviciosSave")

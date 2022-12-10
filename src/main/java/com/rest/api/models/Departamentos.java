@@ -49,6 +49,9 @@ public class Departamentos {
     @Column(name = "estadoDepartamento")
     private String estadoDepartamento;
 
+    // @OneToOne(mappedBy = "departamentos" )
+    // private DeptoGanancias deptoGanancias;
+
     @ManyToMany(mappedBy = "departamentos")
     @JsonIgnore
     private Set<Reserva> departamentos = new HashSet<>();

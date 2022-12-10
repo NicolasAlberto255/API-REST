@@ -17,6 +17,9 @@ public class DepartamentosService {
     @Autowired
     ServiciosRepository serviciosRepository;
 
+    @Autowired
+    DeptoGananciasService deptoGananciasService;
+
     public Departamentos addDeptoServicio(DeptoRequest deptoRequest)
     {
         Departamentos departamentos = new Departamentos();
@@ -47,35 +50,7 @@ public class DepartamentosService {
     public List<Departamentos> getDepartamentos() {
         return (List<Departamentos>) departamentosRepository.findAll();
     }
-
-    public List<String> getCountDepto() {
-        return departamentosRepository.getCountDepto();
-    }
-
-    public List<String> getCountDeptoByEstado() {
-        return departamentosRepository.getCountDeptoByEstado();
-    }
-
-    public List<String> getCountDeptoByComuna(){
-        return departamentosRepository.getCountDeptoByComuna();
-    }
-
-    public List<String> getCountDeptoByRegion(){
-        return departamentosRepository.getCountDeptoByRegion();
-    }
-
-    public List<String> getCountDeptoByTipo(){
-        return departamentosRepository.getCountDeptoByTipo();
-    }
-
-    public List<String> getAvgVNoche(){
-        return departamentosRepository.getAvgVNoche();
-    }
-
-    public List<String> getSumVNoche(){
-        return departamentosRepository.getSumVNoche();
-    }
-
+    
     public Departamentos saveDepartamentos(Departamentos departamentos) {
         return departamentosRepository.save(departamentos);
     }

@@ -18,9 +18,9 @@ public class DeptoServicioController {
         return deptoServicioService.getDeptoServicios();
     }
 
-    @GetMapping("deptoServicioByIdDepartamentos")
-    public List<DeptoServicio> getDeptoServicioByIdDepto(@RequestParam int id) {
-        return deptoServicioService.getDeptoServicioByIdDepto(id);
+    @GetMapping("deptoServicioByIdDepto")
+    public List<DeptoServicio> getDeptoServicioByIdDepto(@RequestParam int idDepartamentos) {
+        return deptoServicioService.getDeptoServicioByIdDepto(idDepartamentos);
     }
 
     @GetMapping("deptoServicioByIdServicios")

@@ -29,20 +29,14 @@ public class ReportesPdfController {
     ReportesPdfService reportesService;
     
     @Autowired
-    ServiciosController serviciosController;
-
-    @Autowired
-    UsuarioController usuarioController;
-
-    @Autowired
-    DepartamentosController departamentosController;
+    DeptoValoresController deptoValoresController;
 
     @GetMapping("reportesList")
     public ResponseEntity<List<ResponseReportePdf>> getReportesList(){
         List<ResponseReportePdf> reportes = reportesService.getAllFiles().map(reporteFile -> {
             String reporteDownloadUri = ServletUriComponentsBuilder
                 .fromCurrentContextPath()
-                .path("/reportes/downloadReporte/")
+                .path("/reportesPdf/downloadReporte/")
                 .path(reporteFile.getNombreReporte())
                 .toUriString();
 
@@ -66,30 +60,15 @@ public class ReportesPdfController {
     }
 
     @GetMapping("crearJson")
-    public Object crearReporte() {
-        Map<Object, Object> reporte = new HashMap<>();
+    public Object crearJson() {
+        Map<Object,Object> reporte = new HashMap<>();
 
-        reporte.put("TotalUsuarios", usuarioController.getCountUsuario());
-        reporte.put("TotalUsuarioRol", usuarioController.getCountUsuariosByRol());
-        reporte.put("TotalUsuarioComuna", usuarioController.getCountUsuariosByComuna());
-        reporte.put("TotalUsuarioRegion", usuarioController.getCountUsuariosByRegion());
+        reporte.put("GananciasDepto", deptoValoresController.getSumaGananciaByIdDepto());
+        reporte.put("GananciasZonas", deptoValoresController.getSumaByNombreZonas());
 
-        reporte.put("TotalServicios", serviciosController.getCountServicio());
-        reporte.put("TotalServicioEstado", serviciosController.getCountServicioByEstado());
-        reporte.put("SumaPreciosServicio", serviciosController.getSumPrecioServicio());
-        reporte.put("PromedioPreciosServicios", serviciosController.getAvgPrecioServicio());
-        reporte.put("PreciosServicios", serviciosController.getPreciosServicio());
-
-        reporte.put("TotalDepartamentos", departamentosController.getCountDepto());
-        reporte.put("TotalDeptoComuna", departamentosController.getCountDeptoByComuna());
-        reporte.put("TotalDeptoRegion", departamentosController.getCountDeptoByRegion());
-        reporte.put("TotalDeptoTipo", departamentosController.getCountDeptoByTipo());
-        reporte.put("TotalDeptoEstado", departamentosController.getCountDeptoByEstado());
-        reporte.put("SumaValorNoche", departamentosController.getSumVNoche());
-        reporte.put("PromedioValorNoche", departamentosController.getAvgVNoche());
-              
         return reporte;
     }
+    
 
     @PostMapping("reporteUpload")
     public ResponseEntity<ResponseMessage> uploadReporte(@RequestParam("reporte") MultipartFile[] reportes) {

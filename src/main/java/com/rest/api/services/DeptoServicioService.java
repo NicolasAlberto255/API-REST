@@ -16,8 +16,8 @@ public class DeptoServicioService {
         return deptoServicioRepository.findAll();
     }
     
-    public List<DeptoServicio> getDeptoServicioByIdDepto(int id) {
-        return deptoServicioRepository.getDeptoServicioByIdDepto(id);
+    public List<DeptoServicio> getDeptoServicioByIdDepto(int idDepartamentos) {
+        return deptoServicioRepository.getDeptoServicioByIdDepto(idDepartamentos);
     }
 
     public List<DeptoServicio> getDeptoServicioByIdServicios(int id) {
