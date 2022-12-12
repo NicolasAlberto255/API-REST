@@ -1,6 +1,10 @@
 package com.rest.api.controllers;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.rest.api.models.Usuarios;
@@ -14,49 +18,35 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @GetMapping("usuarios")
-    public List<Usuarios> getUsuario() {
-        return usuarioService.getUsuario();
+    public List<Usuarios> listarUsuarios() {
+         return usuarioService.listarUsuarios();
+    }
+    
+    @Transactional
+    @GetMapping("usuarioId/{idUsuarioIn}")
+    public String getUserById(@PathVariable("idUsuarioIn") int idUsuarioIn) {
+        return usuarioService.getUserById(idUsuarioIn);
     }
 
-    @GetMapping("usuariosGet/{id}")
-    public Usuarios findById(@PathVariable("id") int id) {
-        return this.usuarioService.findById(id);
+    @Transactional
+    @GetMapping("usuariosGetProcedure/{id}")
+    public Optional<Usuarios> idProcedure(@PathVariable("id") int idRolIn) {
+        return usuarioService.idProcedure(idRolIn);
     }
-
+   
     @GetMapping("cedulaUsuario")
     public List<Usuarios> findUsuarioByCedulaUsuario(@RequestParam String cedulaUsuario) {
         return usuarioService.findUsuarioByCedulaUsuario(cedulaUsuario);
     }
 
-    @GetMapping("estadoUsuario")
-    public List<Usuarios> getUsuariosByEstado(@RequestParam String estadoUsuario) {
-        return usuarioService.getUsuariosByEstado(estadoUsuario);
-    }
-
-    @GetMapping("comunaUsuario")
-    public List<Usuarios> getUsuariosByComuna(@RequestParam String comunaUsuario){
-        return usuarioService.getUsuariosByComuna(comunaUsuario);
-    }
-
-    @GetMapping("regionUsuario")
-    public List<Usuarios> getUsuariosByRegion(@RequestParam String regionUsuario){
-        return usuarioService.getUsuariosByRegion(regionUsuario);
-    }
-
-    @GetMapping("idRol")
-    public List<Usuarios> getUsuariosByIdRol(@RequestParam int idRol){
-        return usuarioService.getUsuariosByIdRol(idRol);
-    }
-
     @PostMapping("usuariosSave")
-    public String saveUsuario(@RequestBody Usuarios usuario) {
-        this.usuarioService.saveUsuario(usuario);
-        return "Usuario Guardado";
+    public void postUsuario(@RequestBody Usuarios usuario) {
+        usuarioService.postUsuario(usuario);
     }
 
-    @PutMapping(path = "usuariosUpdate/{id}")
-    public String updateUser(@PathVariable("id") int id, @RequestBody Usuarios usuario) {
-        Usuarios usuarioUpdate = usuarioService.findById(id);
+    @PutMapping("usuariosUpdate/{id}")
+    public String updateUser(@PathVariable("id") int idUsuario, @RequestBody Usuarios usuario) {
+        Usuarios usuarioUpdate = usuarioService.findById(idUsuario);
         usuarioUpdate.setNombreUsuario(usuario.getNombreUsuario());
         usuarioUpdate.setApellidoUsuario(usuario.getApellidoUsuario());
         usuarioUpdate.setCorreoUsuario(usuario.getCorreoUsuario());
@@ -66,13 +56,13 @@ public class UsuarioController {
         usuarioUpdate.setComunaUsuario(usuario.getComunaUsuario());
         usuarioUpdate.setPasswordUsuario(usuario.getPasswordUsuario());
         usuarioUpdate.setEstadoUsuario(usuario.getEstadoUsuario());
-        usuarioService.saveUsuario(usuarioUpdate);
+        usuarioService.postUsuario(usuarioUpdate);
         return "Usuario actualizado";
     }
 
-    @DeleteMapping(path = "usuariosDelete/{id}")
-    public String deleteUsuario(@PathVariable("id") int id) {
-        boolean ok = this.usuarioService.deleteUsuario(id);
+    @DeleteMapping("usuariosDelete/{idUsuarioIn}")
+    public String deleteById(@PathVariable("idUsuarioIn") int idUsuarioIn) {
+        boolean ok = this.usuarioService.deleteById(idUsuarioIn);
         if (ok) {
             return "Usuario eliminado";
         } else {

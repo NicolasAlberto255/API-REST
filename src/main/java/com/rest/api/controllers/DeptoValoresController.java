@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,12 +26,15 @@ public class DeptoValoresController {
     DeptoGananciasService deptoGananciasService;
 
     @PostMapping("saveGananciaZona")
-    public String saveValorZona(@RequestBody DeptoZonas deptoZonas) {
-        int valorTotal = deptoZonas.getGananciaZona();
-        deptoZonas.setGananciaZona(valorTotal);
-        deptoZonasService.saveGananciaZona(deptoZonas);
-        
-        return "Valor zona agregado";
+    public String postZona(@RequestBody DeptoZonas deptoZonas) {
+        deptoZonasService.postZona(deptoZonas);
+        return "Zona guardada";
+    }
+
+    @PutMapping("updateGananciaZona")
+    public String updateZona(@RequestBody DeptoZonas deptoZonas) {
+        deptoZonasService.updateZona(deptoZonas);
+        return "Zona actualizada";
     }
 
     @GetMapping("sumaValorZona")

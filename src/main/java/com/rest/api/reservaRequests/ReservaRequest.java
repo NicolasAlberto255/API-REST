@@ -14,6 +14,7 @@ public class ReservaRequest {
     public int precioTotal;
     public String estadoReserva;
     public int cntPersonas;
+    public String direccionAcercamiento;
     public Set<Servicios> servicios;
     public Set<Departamentos> departamentos;
     public Set<Usuarios> usuarios;

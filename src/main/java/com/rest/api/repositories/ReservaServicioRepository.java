@@ -1,14 +1,11 @@
 package com.rest.api.repositories;
 
 import java.util.List;
-
-import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 import com.rest.api.models.ReservaServicio;
 
 @Repository
-@Transactional
 public interface ReservaServicioRepository extends JpaRepository<ReservaServicio, Integer> {
 
     public ReservaServicio findByIdReserva(int id);

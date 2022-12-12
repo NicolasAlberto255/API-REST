@@ -1,10 +1,13 @@
 package com.rest.api.repositories;
 
 import java.util.List;
-import javax.transaction.Transactional;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.rest.api.models.Roles;
 import com.rest.api.models.Usuarios;
 
 @Repository
@@ -13,29 +16,23 @@ public interface UsuariosRepository extends JpaRepository<Usuarios, Integer> {
 
     List<Usuarios> findUsuarioByCedulaUsuario(String cedulaUsuario);
 
-    public Usuarios findById(int id);
+    public Usuarios findById(int idUsuario);
+    
+    // @Procedure(procedureName = "CURSOR_BY_ID", outputParameterName = "usuarioOutPut")
+    // public Optional<Usuarios> idProcedure(@Param("idRolIn") int idRolIn);
 
-    @Query(value = "SELECT * FROM USUARIO WHERE COMUNA_USUARIO = ?1", nativeQuery = true)
-    List<Usuarios> getUsuariosByComuna(String comunaUsuario);
+    @Procedure(name = "usuarios.getUsuariosIdRol", outputParameterName = "usuarioOutPut")
+    Optional<Usuarios> idProcedure(int idRolIn);
 
-    @Query(value = "SELECT * FROM USUARIO WHERE REGION_USUARIO = ?1", nativeQuery = true)
-    List<Usuarios> getUsuariosByRegion(String regionUsuario);
+    @Procedure(name = "usuarios.deleteById")
+    public void deleteById(int idUsuarioIn);
 
-    @Query(value = "SELECT * FROM USUARIO WHERE ESTADO_USUARIO = ?1", nativeQuery = true)
-    List<Usuarios> getUsuariosByEstado(String estadoUsuario);
+    @Procedure(name = "usuarios.getUserById", outputParameterName = "usuarioOut")
+    String getUserById(int idUsuarioIn);
 
-    @Query(value = "SELECT * FROM USUARIO WHERE ID_ROL = ?1", nativeQuery = true)
-    List<Usuarios> getUsuariosByIdRol(int rolUsuario);
-
-    @Query(value = "SELECT COUNT(*) FROM USUARIO", nativeQuery = true)
-    List<String> getCountUsuarios();
-
-    @Query(value = "SELECT NOMBRE_ROL,COUNT(*) FROM USUARIO LEFT OUTER JOIN ROLES ON ROLES.ID_ROL = USUARIO.ID_ROL GROUP BY NOMBRE_ROL", nativeQuery = true)
-    List<String> getCountUsuariosByRol();
-
-    @Query(value = "SELECT COMUNA_USUARIO,COUNT(COMUNA_USUARIO) FROM USUARIO GROUP BY COMUNA_USUARIO", nativeQuery = true)
-    List<String> getCountUsuariosByComuna();
-
-    @Query(value = "SELECT REGION_USUARIO,COUNT(REGION_USUARIO) FROM USUARIO GROUP BY REGION_USUARIO", nativeQuery = true)
-    List<String> getCountUsuariosByRegion();
+    @Procedure(name = "usuarios.PostUsuario")
+    void postUsuario(int idUsuario, String nombreUsuario, String apellidoUsuario, String emailUsuario,
+            String cedulaUsuario, int telefonoUsuario, String regionUsuario, String comunaUsuario,
+            String passwordUsuario, String estadoUsuario, Roles idRol);
 }
+

@@ -26,7 +26,7 @@ public class ServiciosImagenesController {
         List<ResponseServicioImagen> imagenes = servicioImagenService.getAllFiles().map(imagenFile -> {
             String imagenDownloadUri = ServletUriComponentsBuilder
                 .fromCurrentContextPath()
-                .path("servicioImagen/downloadImagen/")
+                .path("serviciosImagen/downloadImagen/")
                 .path(imagenFile.getNombre())
                 .toUriString();
 

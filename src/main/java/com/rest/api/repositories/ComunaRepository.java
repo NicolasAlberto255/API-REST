@@ -6,10 +6,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.rest.api.models.Comuna;
 import java.util.List;
-import javax.transaction.Transactional;
 
 @Repository
-@Transactional
 public interface ComunaRepository extends JpaRepository<Comuna, Integer> {
 
     Comuna findById(int id);

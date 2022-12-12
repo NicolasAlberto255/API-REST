@@ -33,7 +33,11 @@ public class DeptoZonasService {
         return deptoZonasRepository.getSumaByNombreZonas();
     }
 
-    public DeptoZonas saveGananciaZona(DeptoZonas deptoZonas) {
-        return deptoZonasRepository.save(deptoZonas);
+    public void postZona(DeptoZonas deptoZonas) {
+        deptoZonasRepository.save(deptoZonas);
+    }
+
+    public void updateZona(DeptoZonas deptoZonas) {
+        deptoZonasRepository.updateZona(deptoZonas.getIdDeptoZonas(), deptoZonas.getGananciaZona(), deptoZonas.getNombreZona());
     }
 }

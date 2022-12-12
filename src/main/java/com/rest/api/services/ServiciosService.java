@@ -27,26 +27,6 @@ public class ServiciosService {
     public List<Servicios> getServicioByEstado(String estadoServicios) {
         return serviciosRepository.getServicioByEstado(estadoServicios);
     }
-    
-    public List<String> getCountServicio() {
-        return serviciosRepository.getCountServicio();
-    }
-
-    public List<String> getAvgPrecioServicio() {
-        return serviciosRepository.getAvgPrecioServicio();
-    }
-
-    public List<String> getSumPrecioServicio() {
-        return serviciosRepository.getSumPrecioServicio();
-    }
-
-    public List<String> getPreciosServicio() {
-        return serviciosRepository.getPreciosServicio();
-    }
-
-    public List<String> getCountServicioByEstado() {
-        return serviciosRepository.getCountServicioByEstado();
-    }
 
     public Servicios updateServicios(Servicios servicios){
         return serviciosRepository.save(servicios);

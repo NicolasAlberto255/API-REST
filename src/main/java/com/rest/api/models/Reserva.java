@@ -39,6 +39,9 @@ public class Reserva {
     @Column(name = "cntPersonas")
     private int cntPersonas;
 
+    @Column(name = "direccionAcercamiento")
+    private String direccionAcercamiento;
+
     @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.ALL })
     @JoinTable(
         name = "reserva_servicios", 
@@ -155,5 +158,13 @@ public class Reserva {
 
     public void setUsuarios(Set<Usuarios> usuarios) {
         this.usuarios = usuarios;
+    }
+
+    public String getDireccionAcercamiento() {
+        return direccionAcercamiento;
+    }
+
+    public void setDireccionAcercamiento(String direccionAcercamiento) {
+        this.direccionAcercamiento = direccionAcercamiento;
     }
 }

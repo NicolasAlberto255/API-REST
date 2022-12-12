@@ -36,6 +36,7 @@ public class ReservaService {
         reserva.setPrecioTotal(reservaRequest.precioTotal);
         reserva.setEstadoReserva(reservaRequest.estadoReserva);
         reserva.setCntPersonas(reservaRequest.cntPersonas);
+        reserva.setDireccionAcercamiento(reservaRequest.direccionAcercamiento);
         reserva.setUsuarios(reservaRequest.usuarios.stream().map(usuarios -> {
             Usuarios usuariosContents = usuarios;
             if (usuarios.getIdUsuario() > 0) {
@@ -74,10 +75,6 @@ public class ReservaService {
 
     public List<Reserva> findByFechaCreacion(Date fechaCreacion) {
         return reservaRepository.findByFechaCreacion(fechaCreacion);
-    }
-
-    public List<Reserva> getReservasByEstado(String estadoReserva) {
-        return reservaRepository.getReservasByEstado(estadoReserva);
     }
 
     public List<Reserva> getReserva() {

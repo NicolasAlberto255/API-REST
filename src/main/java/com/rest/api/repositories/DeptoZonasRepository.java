@@ -1,16 +1,13 @@
 package com.rest.api.repositories;
 
 import com.rest.api.models.DeptoZonas;
-
 import java.util.List;
-
-import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Transactional
 public interface DeptoZonasRepository extends JpaRepository<DeptoZonas, Integer>{
         
         public DeptoZonas getZonaByIdDeptoZonas(int id);
@@ -23,4 +20,13 @@ public interface DeptoZonasRepository extends JpaRepository<DeptoZonas, Integer>
 
         @Query(value = "SELECT NOMBRE_ZONA, SUM(GANANCIA_ZONA) FROM DEPTO_ZONAS GROUP BY NOMBRE_ZONA ORDER BY NOMBRE_ZONA ASC", nativeQuery = true)
         List<String> getSumaByNombreZonas();
+
+
+        @Procedure(name = "zonas.postZona")
+        public void postZona(int idDeptoZonas, int gananciaZona, String nombreZona);
+
+        @Procedure(name = "zonas.updateZona")
+        public void updateZona(int idDeptoZonas, int gananciaZona, String nombreZona);
+
+        
 }

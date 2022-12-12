@@ -24,11 +24,6 @@ public class ReservaController {
         return this.reservaService.findById(id);
     }
 
-    @GetMapping("estadoReserva")
-    public List<Reserva> getReservasByEstado(@RequestParam String estadoReserva) {
-        return reservaService.getReservasByEstado(estadoReserva);
-    }
-
     @PostMapping("reservaSave")
     public String saveReserva(@RequestBody Reserva reserva) {
         this.reservaService.saveReserva(reserva);
